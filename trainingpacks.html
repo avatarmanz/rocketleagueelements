@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rocket League Elements</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            margin: 0;
+            padding: 0px;
+        }
+        header {
+            background-color: #ff6f20;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            margin: 20px 0;
+        }
+        nav a {
+            color: #ffffff;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        section {
+            padding: 20px;
+	    text-align: center;
+        }
+        footer {
+            text-align: center;
+            padding: 0px;
+            background-color: #333;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+	}
+    	table {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+	    border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ffffff;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #ff6f20;
+        }
+        td {
+            background-color: #2a2a2a;
+        }
+        td button {
+            background: none;
+            border: none;
+            color: #ff6f20;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        td button:hover {
+            text-decoration: underline;
+        }
+        .copy-success {
+            color: #4CAF50;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Rocket League Elements</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="rankup.html">Rank Up</a>
+        <a href="trainingpacks.html">Training Packs</a>
+        <a href="tutorials.html">Tutorials</a>
+    </nav>
+</header>
+
+<section>
+    <h1>Click a code to copy it to your clipboard.</h1>
+    <p>Avatar Created</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Training Pack Name</th>
+                <th>Code</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Aerials and Angles</td>
+                <td><button onclick="copyToClipboard('6134-C559-180C-52D1')">6134-C559-180C-52D1</button></td>
+            </tr>
+            <tr>
+                <td>Air Drag Above The Goal</td>
+                <td><button onclick="copyToClipboard('337F-FE48-C192-D425')">337F-FE48-C192-D425</button></td>
+            </tr>
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+
+    <p class="copy-success" id="copySuccess">Code copied to clipboard!</p>
+</section>
+
+<script>
+    function copyToClipboard(code) {
+        // Create a temporary input field to store the text
+        const tempInput = document.createElement('input');
+        tempInput.value = code;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+
+        // Display success message
+        const successMessage = document.getElementById('copySuccess');
+        successMessage.style.display = 'block';
+        setTimeout(() => {
+            successMessage.style.display = 'none';
+        }, 2000);
+    }
+</script>
+
+</body>
+</html>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1a1a1a;
+        color: #ffffff;
+        margin: 0;
+        padding: 0;
+    }
+    header {
+        background-color: #ff6f20;
+        padding: 20px;
+        text-align: center;
+    }
+    nav {
+        margin: 20px 0;
+    }
+    nav a {
+        color: #ffffff;
+        margin: 0 15px;
+        text-decoration: none;
+        font-size: 1.2rem; /* Set a default font size */
+        transition: font-size 0.3s ease; /* Smooth transition for resizing */
+    }
+
+    /* Responsive adjustments for different screen sizes */
+    @media (max-width: 768px) {
+        nav a {
+            font-size: 1rem; /* Slightly smaller font on tablets/smaller screens */
+        }
+    }
+
+    @media (max-width: 480px) {
+        nav a {
+            font-size: 0.9rem; /* Even smaller on mobile phones */
+        }
+    }
+
+    section {
+        padding: 20px;
+    }
+    footer {
+        text-align: center;
+        padding: 0px;
+        background-color: #333;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+    }
+</style>
+
