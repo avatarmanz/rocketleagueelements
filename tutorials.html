@@ -20,14 +20,38 @@
         }
         nav {
             margin: 20px 0;
+            position: relative;
         }
         nav a {
             color: #ffffff;
             margin: 0 15px;
             text-decoration: none;
         }
+        .dropdown {
+            display: inline-block;
+            position: relative;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ff6f20;
+            min-width: 160px;
+            z-index: 1;
+            padding: 10px 0;
+        }
+        .dropdown-content a {
+            display: block;
+            color: #ffffff;
+            padding: 10px 15px;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
         section {
             padding: 20px;
+        }
+        #welcome h2 {
+            margin-bottom: 25px;
         }
         footer {
             text-align: center;
@@ -45,7 +69,18 @@
     <h1>Rocket League Elements</h1>
     <nav>
         <a href="index.html">Home</a>
-        <a href="rankup.html">Rank Up</a>
+        <div class="dropdown">
+            <a href="#">Rank Up</a>
+            <div class="dropdown-content">
+                <a href="bronze.html">Bronze</a>
+                <a href="silver.html">Silver</a>
+                <a href="gold.html">Gold</a>
+                <a href="platinum.html">Platinum</a>
+                <a href="diamond.html">Diamond</a>
+                <a href="champion.html">Champion</a>
+                <a href="grandchampion.html">Grand Champion</a>
+            </div>
+        </div>
         <a href="trainingpacks.html">Training Packs</a>
         <a href="tutorials.html">Tutorials</a>
     </nav>
