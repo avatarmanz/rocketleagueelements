@@ -11,7 +11,7 @@
             background-color: #1a1a1a;
             color: #ffffff;
             margin: 0;
-            padding: 0px;
+            padding: 0;
         }
         header {
             background-color: #ff6f20;
@@ -20,15 +20,38 @@
         }
         nav {
             margin: 20px 0;
+            position: relative;
         }
         nav a {
             color: #ffffff;
             margin: 0 15px;
             text-decoration: none;
         }
+        .dropdown {
+            display: inline-block;
+            position: relative;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ff6f20;
+            min-width: 160px;
+            z-index: 1;
+            padding: 10px 0;
+        }
+        .dropdown-content a {
+            display: block;
+            color: #ffffff;
+            padding: 10px 15px;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
         section {
             padding: 20px;
-            text-align: center;
+        }
+        #welcome h2 {
+            margin-bottom: 25px; /* Adds space after the Welcome text */
         }
         footer {
             text-align: center;
@@ -62,7 +85,6 @@
         <a href="tutorials.html">Tutorials</a>
     </nav>
 </header>
-
 
 <section>
 <div style="text-align: center;margin-top:20px;margin-bottom:25px;">
