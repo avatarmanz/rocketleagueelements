@@ -6,7 +6,6 @@
     <title>Rocket League Elements</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.jpg" type="image/jpeg">
-
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -22,13 +21,38 @@
         }
         nav {
             margin: 20px 0;
+            position: relative;
         }
         nav a {
             color: #ffffff;
             margin: 0 15px;
+            text-decoration: none;
+        }
+        .dropdown {
+            display: inline-block;
+            position: relative;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ff6f20;
+            min-width: 160px;
+            z-index: 1;
+            padding: 10px 0;
+        }
+        .dropdown-content a {
+            display: block;
+            color: #ffffff;
+            padding: 10px 15px;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
         }
         section {
             padding: 20px;
+        }
+        #welcome h2 {
+            margin-bottom: 25px; /* Adds space after the Welcome text */
         }
         footer {
             text-align: center;
@@ -46,13 +70,25 @@
     <h1>Rocket League Elements</h1>
     <nav>
         <a href="index.html">Home</a>
-        <a href="rankup.html">Rank Up</a>
+        <div class="dropdown">
+            <a href="rankup.html">Rank Up</a>
+            <div class="dropdown-content">
+                <a href="bronze.html">Bronze</a>
+                <a href="silver.html">Silver</a>
+                <a href="gold.html">Gold</a>
+                <a href="platinum.html">Platinum</a>
+                <a href="diamond.html">Diamond</a>
+                <a href="champion.html">Champion</a>
+                <a href="grandchampion.html">Grand Champion</a>
+            </div>
+        </div>
         <a href="trainingpacks.html">Training Packs</a>
         <a href="tutorials.html">Tutorials</a>
     </nav>
 </header>
 
 <section id="welcome">
+  <div style="text-align: center;">
     <h2>Welcome</h2>
     <p>You have 0 hours in the game and are starting back at Bronze.</p>
     <p>Go to the Rank Up page and complete each task before moving on. Good luck.</p>
@@ -60,53 +96,3 @@
 
 </body>
 </html>
-
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #1a1a1a;
-        color: #ffffff;
-        margin: 0;
-        padding: 0;
-    }
-    header {
-        background-color: #ff6f20;
-        padding: 20px;
-        text-align: center;
-    }
-    nav {
-        margin: 20px 0;
-    }
-    nav a {
-        color: #ffffff;
-        margin: 0 15px;
-        text-decoration: none;
-        font-size: 1.2rem; /* Set a default font size */
-        transition: font-size 0.3s ease; /* Smooth transition for resizing */
-    }
-
-    /* Responsive adjustments for different screen sizes */
-    @media (max-width: 768px) {
-        nav a {
-            font-size: 1rem; /* Slightly smaller font on tablets/smaller screens */
-        }
-    }
-
-    @media (max-width: 480px) {
-        nav a {
-            font-size: 0.9rem; /* Even smaller on mobile phones */
-        }
-    }
-
-    section {
-        padding: 20px;
-    }
-    footer {
-        text-align: center;
-        padding: 0px;
-        background-color: #333;
-        position: relative;
-        bottom: 0;
-        width: 100%;
-    }
-</style>
