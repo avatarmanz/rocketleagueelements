@@ -1,3 +1,10 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
 header {
     background-color: #ff6f20;
     padding: 20px;
@@ -7,7 +14,7 @@ nav {
     margin: 20px 0;
     position: relative;
 }
-nav a, .dropdown span {
+nav a {
     color: #ffffff;
     margin: 0 15px;
     text-decoration: none;
@@ -15,6 +22,11 @@ nav a, .dropdown span {
 .dropdown {
     display: inline-block;
     position: relative;
+}
+.dropdown span {
+    cursor: default;
+    color: #ffffff;
+    margin: 0 15px;
 }
 .dropdown-content {
     display: none;
@@ -28,7 +40,22 @@ nav a, .dropdown span {
     display: block;
     color: #ffffff;
     padding: 10px 15px;
+    text-decoration: none;
 }
 .dropdown:hover .dropdown-content {
     display: block;
+}
+section {
+    padding: 20px;
+}
+#welcome h2 {
+    margin-bottom: 25px;
+}
+footer {
+    text-align: center;
+    padding: 0px;
+    background-color: #333;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
