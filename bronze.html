@@ -31,6 +31,11 @@
             display: inline-block;
             position: relative;
         }
+        .dropdown span {
+            cursor: default; /* Change cursor to indicate non-clickable */
+            color: #ffffff; /* Ensure the text is styled */
+            margin: 0 15px; /* Match the spacing of other links */
+        }
         .dropdown-content {
             display: none;
             position: absolute;
@@ -40,9 +45,10 @@
             padding: 10px 0;
         }
         .dropdown-content a {
-            display: block;
+            display: block; /* Ensure links stack vertically */
             color: #ffffff;
             padding: 10px 15px;
+            text-decoration: none; /* Remove underline */
         }
         .dropdown:hover .dropdown-content {
             display: block;
@@ -70,7 +76,7 @@
     <nav>
         <a href="index.html">Home</a>
         <div class="dropdown">
-            <a href="#">Rank Up</a>
+            <span>Rank Up</span> <!-- Changed to span -->
             <div class="dropdown-content">
                 <a href="bronze.html">Bronze</a>
                 <a href="silver.html">Silver</a>
