@@ -61,19 +61,31 @@ footer {
 }
 
 /* Styles for the training packs page */
-section {
+section#trainingpacks {
     text-align: center; /* Center the content */
 }
 table {
     margin: 20px auto; /* Center the table and add top/bottom margin */
     border-collapse: collapse; /* Collapse borders */
-    width: 25%; /* Set a width for the table */
+    width: 50%; /* Set a width for the table */
+    max-width: 600px; /* Limit the maximum width */
 }
 th, td {
-    border: 1px solid #ffffff; /* Add border to table cells */
+    border: 2px solid #ffffff; /* Add thicker border to table cells */
     padding: 10px; /* Add padding to table cells */
     text-align: center; /* Center the text in cells */
 }
 th {
     background-color: #ff6f20; /* Background color for the header */
+}
+button {
+    color: #ffffff;
+    background-color: #333;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 1em;
+}
+button:hover {
+    background-color: #ff6f20;
 }
