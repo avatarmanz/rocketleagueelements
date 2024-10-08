@@ -31,6 +31,7 @@ nav a {
 }
 
 .dropdown span {
+    font-size: 1.2rem;
     cursor: default;
     color: #ffffff;
     margin: 0 15px;
