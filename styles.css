@@ -155,6 +155,11 @@ section#trainingpacks {
     text-align: center; /* Center the content */
 }
 
+/* Center the h1 text on the trainingpacks page */
+section#trainingpacks h1 {
+    text-align: center; /* Ensure the H1 text is centered */
+}
+
 table {
     margin: 20px auto; /* Center the table and add top/bottom margin */
     border-collapse: collapse; /* Collapse borders */
