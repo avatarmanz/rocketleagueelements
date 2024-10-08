@@ -149,8 +149,6 @@
             </tr>
         </tbody>
     </table>
-
-    <p class="copy-success" id="copySuccess" style="display:none;">Code copied to clipboard!</p>
 </section>
 
 <script>
@@ -162,13 +160,6 @@
         tempInput.select();
         document.execCommand('copy');
         document.body.removeChild(tempInput);
-
-        // Display success message
-        const successMessage = document.getElementById('copySuccess');
-        successMessage.style.display = 'block';
-        setTimeout(() => {
-            successMessage.style.display = 'none';
-        }, 2000);
     }
 </script>
 
