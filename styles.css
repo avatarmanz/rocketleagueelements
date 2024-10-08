@@ -13,13 +13,12 @@ header {
 }
 
 nav {
+    margin: 20px 0;
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-wrap: nowrap; /* Ensure items don't wrap by default */
+    align-items: center; /* Aligns all items vertically */
+    flex-wrap: nowrap; /* Ensure items do not wrap onto a new line */
     gap: 10px;
-    width: 100%;
-    overflow: hidden; /* Prevent any content from pushing the layout */
 }
 
 nav a,
@@ -27,26 +26,22 @@ nav a,
     color: #ffffff;
     text-decoration: none;
     font-size: 1.2rem;
-    line-height: 1.5;
-    padding: 5px 10px;
-    white-space: nowrap; /* Prevent links from wrapping */
-    transition: all 0.3s ease;
+    transition: font-size 0.3s ease;
+    line-height: 1.5; /* Ensure consistent line height */
+    padding: 5px 10px; /* Add padding to links to prevent text wrapping */
+    white-space: nowrap; /* Prevent links from wrapping onto new lines */
 }
 
-/* Make sure links shrink proportionally when screen space is limited */
-nav a, 
-.dropdown span {
-    flex-shrink: 1; /* Allow links to shrink */
-}
-
+/* Dropdown styling */
 .dropdown {
     position: relative;
 }
 
 .dropdown span {
-    cursor: pointer;
+    cursor: default;
 }
 
+/* Dropdown content */
 .dropdown-content {
     display: none;
     position: absolute;
@@ -79,40 +74,41 @@ nav a,
 /* Responsive styles for navigation */
 @media (max-width: 1024px) {
     nav {
-        gap: 5px;
+        gap: 5px; /* Reduce gap between links */
     }
 
     nav a,
     .dropdown span {
-        font-size: 1.1rem;
+        font-size: 1.1rem; /* Scale down slightly for medium screens */
     }
 }
 
 @media (max-width: 768px) {
     nav a,
     .dropdown span {
-        font-size: 1rem;
-        padding: 4px 8px;
+        font-size: 1rem; /* Further scale down font size for smaller screens */
+        padding: 4px 8px; /* Reduce padding to fit more items */
     }
 }
 
 @media (max-width: 480px) {
     nav {
-        flex-wrap: wrap; /* Allow wrapping if it gets too cramped */
+        flex-wrap: wrap; /* Allow wrapping on very small screens */
     }
 
     nav a,
     .dropdown span {
-        font-size: 0.9rem;
-        padding: 3px 6px;
-        flex-shrink: 1; /* Ensure shrinking continues on small screens */
+        font-size: 0.9rem; /* Scale down font size more aggressively */
+        padding: 3px 6px; /* Reduce padding even more for smallest screens */
     }
 }
 
+/* General section styling */
 section {
     padding: 20px;
 }
 
+/* Styles for the training packs page */
 section#trainingpacks {
     text-align: center;
 }
@@ -147,6 +143,7 @@ button:hover {
     background-color: #ff6f20;
 }
 
+/* Carousel container styling */
 .carousel-container {
     max-width: 560px;
     margin: auto;
@@ -162,6 +159,7 @@ button:hover {
     height: auto;
 }
 
+/* Arrow styling */
 .prev, .next {
     cursor: pointer;
     position: absolute;
@@ -204,6 +202,7 @@ button:hover {
     color: white;
 }
 
+/* Row and column styling for thumbnails */
 .row:after {
     content: "";
     display: table;
@@ -223,6 +222,7 @@ button:hover {
     opacity: 1;
 }
 
+/* Footer styling */
 footer {
     text-align: center;
     padding: 0px;
