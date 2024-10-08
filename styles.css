@@ -13,20 +13,23 @@ header {
 }
 
 nav {
-    display: flex; /* Use flexbox for layout control */
-    justify-content: center; /* Center the nav items horizontally */
-    flex-wrap: wrap; /* Allow items to wrap if needed */
-    gap: 10px; /* Add space between the items */
     margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Aligns all items vertically */
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
-nav a, .dropdown span {
+nav a,
+.dropdown span {
     color: #ffffff;
     text-decoration: none;
-    font-size: 1.2rem; /* Set a default font size */
+    font-size: 1.2rem;
     transition: font-size 0.3s ease;
-    white-space: nowrap; /* Prevent text wrapping */
-    padding: 10px; /* Add padding around links */
+    line-height: 1.5; /* Ensure consistent line height */
+    padding: 5px 10px; /* Add padding to links to prevent text wrapping */
+    white-space: nowrap; /* Prevent links from wrapping onto new lines */
 }
 
 /* Dropdown styling */
@@ -34,6 +37,11 @@ nav a, .dropdown span {
     position: relative;
 }
 
+.dropdown span {
+    cursor: default;
+}
+
+/* Dropdown content */
 .dropdown-content {
     display: none;
     position: absolute;
@@ -63,28 +71,19 @@ nav a, .dropdown span {
     display: block;
 }
 
-/* Responsive styles for different screen sizes */
+/* Responsive styles for navigation */
 @media (max-width: 768px) {
-    nav {
-        gap: 5px; /* Reduce gap between items on smaller screens */
-    }
-
-    nav a, .dropdown span {
-        font-size: 1rem; /* Reduce font size on smaller screens */
+    nav a,
+    .dropdown span {
+        font-size: 1rem;
     }
 }
 
 @media (max-width: 480px) {
-    nav {
-        gap: 3px; /* Further reduce gap */
-    }
-
-    nav a, .dropdown span {
-        font-size: 0.9rem; /* Further reduce font size on very small screens */
-    }
-
-    nav a {
-        padding: 8px; /* Adjust padding to fit better */
+    nav a,
+    .dropdown span {
+        font-size: 0.9rem;
+        padding: 5px;
     }
 }
 
