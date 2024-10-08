@@ -210,10 +210,4 @@ button {
 button:hover {
     background-color: #ff6f20;
 }
-
-/* Success message styling */
-.copy-success {
-    color: #00ff00;
-    margin-top: 20px;
-    font-size: 1.2em;
 }
