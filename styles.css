@@ -17,7 +17,7 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center; /* Aligns all items vertically */
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* Ensure items do not wrap onto a new line */
     gap: 10px;
 }
 
@@ -72,24 +72,75 @@ nav a,
 }
 
 /* Responsive styles for navigation */
+@media (max-width: 1024px) {
+    nav {
+        gap: 5px; /* Reduce gap between links */
+    }
+
+    nav a,
+    .dropdown span {
+        font-size: 1.1rem; /* Scale down slightly for medium screens */
+    }
+}
+
 @media (max-width: 768px) {
     nav a,
     .dropdown span {
-        font-size: 1rem;
+        font-size: 1rem; /* Further scale down font size for smaller screens */
+        padding: 4px 8px; /* Reduce padding to fit more items */
     }
 }
 
 @media (max-width: 480px) {
+    nav {
+        flex-wrap: wrap; /* Allow wrapping on very small screens */
+    }
+
     nav a,
     .dropdown span {
-        font-size: 0.9rem;
-        padding: 5px;
+        font-size: 0.9rem; /* Scale down font size more aggressively */
+        padding: 3px 6px; /* Reduce padding even more for smallest screens */
     }
 }
 
 /* General section styling */
 section {
     padding: 20px;
+}
+
+/* Styles for the training packs page */
+section#trainingpacks {
+    text-align: center;
+}
+
+table {
+    margin: 20px auto;
+    border-collapse: collapse;
+    width: 50%;
+    max-width: 600px;
+}
+
+th, td {
+    border: 2px solid #ffffff;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #ff6f20;
+}
+
+button {
+    color: #ffffff;
+    background-color: #333;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+button:hover {
+    background-color: #ff6f20;
 }
 
 /* Carousel container styling */
@@ -179,39 +230,4 @@ footer {
     position: relative;
     bottom: 0;
     width: 100%;
-}
-
-/* Styles for the training packs page */
-section#trainingpacks {
-    text-align: center;
-}
-
-table {
-    margin: 20px auto;
-    border-collapse: collapse;
-    width: 50%;
-    max-width: 600px;
-}
-
-th, td {
-    border: 2px solid #ffffff;
-    padding: 10px;
-    text-align: center;
-}
-
-th {
-    background-color: #ff6f20;
-}
-
-button {
-    color: #ffffff;
-    background-color: #333;
-    border: none;
-    padding: 8px 16px;
-    cursor: pointer;
-    font-size: 1em;
-}
-
-button:hover {
-    background-color: #ff6f20;
 }
