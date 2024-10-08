@@ -143,6 +143,20 @@ button:hover {
     background-color: #ff6f20;
 }
 
+/* Responsive table styles */
+@media (max-width: 768px) {
+    table {
+        width: 90%; /* Expand to 90% width on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    table {
+        width: 100%; /* Use full width on mobile screens */
+        margin: 10px 0; /* Reduce margin for better fit */
+    }
+}
+
 /* Carousel container styling */
 .carousel-container {
     max-width: 560px;
