@@ -13,32 +13,27 @@ header {
 }
 
 nav {
+    display: flex; /* Use flexbox for layout control */
+    justify-content: center; /* Center the nav items horizontally */
+    flex-wrap: wrap; /* Allow items to wrap if needed */
+    gap: 10px; /* Add space between the items */
     margin: 20px 0;
-    position: relative;
 }
 
-nav a {
+nav a, .dropdown span {
     color: #ffffff;
-    margin: 0 15px;
     text-decoration: none;
     font-size: 1.2rem; /* Set a default font size */
     transition: font-size 0.3s ease;
+    white-space: nowrap; /* Prevent text wrapping */
+    padding: 10px; /* Add padding around links */
 }
 
 /* Dropdown styling */
 .dropdown {
-    display: inline-block;
     position: relative;
 }
 
-.dropdown span {
-    cursor: default;
-    color: #ffffff;
-    margin: 0 15px;
-    font-size: 1.2rem; /* Ensures Rank Up text is same size as the others */
-}
-
-/* Center and style the dropdown */
 .dropdown-content {
     display: none;
     position: absolute;
@@ -46,10 +41,10 @@ nav a {
     min-width: 160px;
     z-index: 1;
     padding: 10px 0;
-    left: 50%; /* Aligns the dropdown in the middle */
-    transform: translateX(-50%); /* Centers it under the "Rank Up" link */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5); /* Adds shadow for depth */
-    border-radius: 5px; /* Optional: Rounds the corners for a smoother look */
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
 }
 
 .dropdown-content a {
@@ -59,26 +54,37 @@ nav a {
     text-decoration: none;
 }
 
-/* Add hover effect to dropdown items */
 .dropdown-content a:hover {
-    background-color: #333; /* Darkens the background on hover */
-    color: #ff6f20; /* Changes text color on hover */
+    background-color: #333;
+    color: #ff6f20;
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
-/* Responsive styles for navigation */
+/* Responsive styles for different screen sizes */
 @media (max-width: 768px) {
-    nav a {
-        font-size: 1rem;
+    nav {
+        gap: 5px; /* Reduce gap between items on smaller screens */
+    }
+
+    nav a, .dropdown span {
+        font-size: 1rem; /* Reduce font size on smaller screens */
     }
 }
 
 @media (max-width: 480px) {
+    nav {
+        gap: 3px; /* Further reduce gap */
+    }
+
+    nav a, .dropdown span {
+        font-size: 0.9rem; /* Further reduce font size on very small screens */
+    }
+
     nav a {
-        font-size: 0.9rem;
+        padding: 8px; /* Adjust padding to fit better */
     }
 }
 
@@ -91,7 +97,7 @@ section {
 .carousel-container {
     max-width: 560px;
     margin: auto;
-    position: relative; /* Ensure arrows are positioned relative to the carousel */
+    position: relative;
 }
 
 .mySlides {
@@ -107,28 +113,28 @@ section {
 .prev, .next {
     cursor: pointer;
     position: absolute;
-    top: 50%; /* Center vertically */
+    top: 50%;
     padding: 16px;
     color: white;
     font-weight: bold;
     font-size: 20px;
     user-select: none;
     transform: translateY(-50%);
-    z-index: 1; /* Ensure arrows are above the carousel images */
+    z-index: 1;
 }
 
 .prev {
-    left: 10px; /* Position 10px from the left edge of the carousel */
+    left: 10px;
     border-radius: 3px 0 0 3px;
 }
 
 .next {
-    right: 10px; /* Position 10px from the right edge of the carousel */
+    right: 10px;
     border-radius: 0 3px 3px 0;
 }
 
 .prev:hover, .next:hover {
-    background-color: rgba(0, 0, 0, 0.8); /* Highlight arrows on hover */
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .numbertext {
@@ -178,24 +184,24 @@ footer {
 
 /* Styles for the training packs page */
 section#trainingpacks {
-    text-align: center; /* Center the content */
+    text-align: center;
 }
 
 table {
-    margin: 20px auto; /* Center the table and add top/bottom margin */
-    border-collapse: collapse; /* Collapse borders */
-    width: 50%; /* Set a width for the table */
-    max-width: 600px; /* Limit the maximum width */
+    margin: 20px auto;
+    border-collapse: collapse;
+    width: 50%;
+    max-width: 600px;
 }
 
 th, td {
-    border: 2px solid #ffffff; /* Add thicker border to table cells */
-    padding: 10px; /* Add padding to table cells */
-    text-align: center; /* Center the text in cells */
+    border: 2px solid #ffffff;
+    padding: 10px;
+    text-align: center;
 }
 
 th {
-    background-color: #ff6f20; /* Background color for the header */
+    background-color: #ff6f20;
 }
 
 button {
@@ -209,5 +215,4 @@ button {
 
 button:hover {
     background-color: #ff6f20;
-}
 }
