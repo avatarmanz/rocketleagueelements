@@ -70,6 +70,7 @@ section {
 .carousel-container {
     max-width: 560px;
     margin: auto;
+    position: relative; /* Ensure arrows are positioned relative to the carousel */
 }
 
 .mySlides {
@@ -81,19 +82,26 @@ section {
     height: auto;
 }
 
+/* Arrow styling */
 .prev, .next {
     cursor: pointer;
     position: absolute;
-    top: 40%;
+    top: 50%;
     width: auto;
     padding: 16px;
-    margin-top: -50px;
     color: white;
     font-weight: bold;
     font-size: 20px;
     border-radius: 0 3px 3px 0;
     user-select: none;
     -webkit-user-select: none;
+    transform: translateY(-50%); /* Center vertically */
+}
+
+/* Position next and previous arrows inside the carousel */
+.prev {
+    left: 0;
+    border-radius: 3px 0 0 3px;
 }
 
 .next {
