@@ -5,15 +5,18 @@ body {
     margin: 0;
     padding: 0;
 }
+
 header {
     background-color: #ff6f20;
     padding: 20px;
     text-align: center;
 }
+
 nav {
     margin: 20px 0;
     position: relative;
 }
+
 nav a {
     color: #ffffff;
     margin: 0 15px;
@@ -21,15 +24,18 @@ nav a {
     font-size: 1.2rem; /* Set a default font size */
     transition: font-size 0.3s ease;
 }
+
 .dropdown {
     display: inline-block;
     position: relative;
 }
+
 .dropdown span {
     cursor: default;
     color: #ffffff;
     margin: 0 15px;
 }
+
 .dropdown-content {
     display: none;
     position: absolute;
@@ -38,12 +44,14 @@ nav a {
     z-index: 1;
     padding: 10px 0;
 }
+
 .dropdown-content a {
     display: block;
     color: #ffffff;
     padding: 10px 15px;
     text-decoration: none;
 }
+
 .dropdown:hover .dropdown-content {
     display: block;
 }
@@ -86,31 +94,28 @@ section {
 .prev, .next {
     cursor: pointer;
     position: absolute;
-    top: 50%;
-    width: auto;
+    top: 50%; /* Center vertically */
     padding: 16px;
     color: white;
     font-weight: bold;
     font-size: 20px;
-    border-radius: 0 3px 3px 0;
     user-select: none;
-    -webkit-user-select: none;
-    transform: translateY(-50%); /* Center vertically */
+    transform: translateY(-50%);
+    z-index: 1; /* Ensure arrows are above the carousel images */
 }
 
-/* Position next and previous arrows inside the carousel */
 .prev {
-    left: 0;
+    left: 10px; /* Position 10px from the left edge of the carousel */
     border-radius: 3px 0 0 3px;
 }
 
 .next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
+    right: 10px; /* Position 10px from the right edge of the carousel */
+    border-radius: 0 3px 3px 0;
 }
 
 .prev:hover, .next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.8); /* Highlight arrows on hover */
 }
 
 .numbertext {
@@ -156,6 +161,11 @@ footer {
     position: relative;
     bottom: 0;
     width: 100%;
+}
+
+/* Styles for the training packs page */
+section#trainingpacks {
+    text-align: center; /* Center the content */
 }
 
 table {
