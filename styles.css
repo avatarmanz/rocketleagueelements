@@ -16,7 +16,7 @@ html {
 /* Header styling */
 header {
     background-color: #ff6f20;
-    padding: 20px 40px;
+    padding: 15px 30px; /* Reduced padding to decrease height */
     text-align: center;
 }
 
@@ -268,7 +268,7 @@ footer a:hover {
 
 @media (max-width: 768px) {
     header {
-        padding: 10px 20px;
+        padding: 10px 20px; /* Reduced padding for medium screens */
     }
 
     h1 {
@@ -287,6 +287,10 @@ footer a:hover {
 }
 
 @media (max-width: 480px) {
+    header {
+        padding: 8px 15px; /* Further reduced padding for small screens */
+    }
+
     nav a,
     .dropdown span {
         font-size: 0.9rem;
