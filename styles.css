@@ -1,23 +1,32 @@
+/* General body styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     background-color: #1a1a1a;
     color: #ffffff;
     margin: 0;
     padding: 0;
+    line-height: 1.6;
 }
 
+/* Header styling */
 header {
     background-color: #ff6f20;
-    padding: 20px;
+    padding: 20px 40px;
     text-align: center;
 }
 
+h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+/* Navigation styles */
 nav {
     margin: 20px 0;
     display: flex;
     justify-content: center;
-    align-items: center; /* Aligns all items vertically */
-    flex-wrap: nowrap; /* Ensure items do not wrap onto a new line */
+    align-items: center;
+    flex-wrap: nowrap;
     gap: 10px;
 }
 
@@ -26,10 +35,17 @@ nav a,
     color: #ffffff;
     text-decoration: none;
     font-size: 1.2rem;
-    transition: font-size 0.3s ease;
-    line-height: 1.5; /* Ensure consistent line height */
-    padding: 5px 10px; /* Add padding to links to prevent text wrapping */
-    white-space: nowrap; /* Prevent links from wrapping onto new lines */
+    padding: 5px 15px;
+    line-height: 1.5;
+    white-space: nowrap;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #ffffff;
+    color: #ff6f20;
+    border-radius: 5px;
+    transform: scale(1.05); /* Subtle zoom on hover */
 }
 
 /* Dropdown styling */
@@ -45,70 +61,57 @@ nav a,
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #ff6f20;
+    background-color: #333;
     min-width: 160px;
     z-index: 1;
     padding: 10px 0;
     left: 50%;
     transform: translateX(-50%);
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
-    border-radius: 5px;
+    border-radius: 8px;
 }
 
 .dropdown-content a {
     display: block;
     color: #ffffff;
-    padding: 10px 15px;
+    padding: 10px 20px;
     text-decoration: none;
+    transition: background-color 0.3s ease;
 }
 
 .dropdown-content a:hover {
-    background-color: #333;
-    color: #ff6f20;
+    background-color: #ff6f20;
+    color: #ffffff;
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
-/* Responsive styles for navigation */
-@media (max-width: 1024px) {
-    nav {
-        gap: 5px; /* Reduce gap between links */
-    }
-
-    nav a,
-    .dropdown span {
-        font-size: 1.1rem; /* Scale down slightly for medium screens */
-    }
+/* Button styling */
+button {
+    color: #ffffff;
+    background-color: #ff6f20;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-@media (max-width: 768px) {
-    nav a,
-    .dropdown span {
-        font-size: 1rem; /* Further scale down font size for smaller screens */
-        padding: 4px 8px; /* Reduce padding to fit more items */
-    }
+button:hover {
+    background-color: #ffffff;
+    color: #ff6f20;
+    transform: scale(1.05); /* Subtle zoom on hover */
 }
 
-@media (max-width: 480px) {
-    nav {
-        flex-wrap: wrap; /* Allow wrapping on very small screens */
-    }
-
-    nav a,
-    .dropdown span {
-        font-size: 0.9rem; /* Scale down font size more aggressively */
-        padding: 3px 6px; /* Reduce padding even more for smallest screens */
-    }
-}
-
-/* General section styling */
+/* Section styling */
 section {
     padding: 20px;
 }
 
-/* Styles for the training packs page */
+/* Training packs table styling */
 section#trainingpacks {
     text-align: center;
 }
@@ -130,34 +133,21 @@ th {
     background-color: #ff6f20;
 }
 
-button {
-    color: #ffffff;
-    background-color: #333;
-    border: none;
-    padding: 8px 16px;
-    cursor: pointer;
-    font-size: 1em;
-}
-
-button:hover {
-    background-color: #ff6f20;
-}
-
 /* Responsive table styles */
 @media (max-width: 768px) {
     table {
-        width: 90%; /* Expand to 90% width on smaller screens */
+        width: 90%;
     }
 }
 
 @media (max-width: 480px) {
     table {
-        width: 100%; /* Use full width on mobile screens */
-        margin: 10px 0; /* Reduce margin for better fit */
+        width: 100%;
+        margin: 10px 0;
     }
 }
 
-/* Carousel container styling */
+/* Carousel styling */
 .carousel-container {
     max-width: 560px;
     margin: auto;
@@ -201,6 +191,7 @@ button:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
+/* Carousel number text */
 .numbertext {
     color: #f2f2f2;
     font-size: 12px;
@@ -209,6 +200,7 @@ button:hover {
     top: 0;
 }
 
+/* Caption container */
 .caption-container {
     text-align: center;
     background-color: #222;
@@ -238,10 +230,63 @@ button:hover {
 
 /* Footer styling */
 footer {
+    background-color: #222;
+    color: #ccc;
+    padding: 20px;
     text-align: center;
-    padding: 0px;
-    background-color: #333;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: #ff6f20;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive navigation styles */
+@media (max-width: 1024px) {
+    nav {
+        gap: 5px;
+    }
+
+    nav a,
+    .dropdown span {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 10px 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    nav {
+        flex-wrap: wrap;
+    }
+
+    nav a,
+    .dropdown span {
+        font-size: 1rem;
+        padding: 4px 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav a,
+    .dropdown span {
+        font-size: 0.9rem;
+        padding: 3px 6px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+    }
 }
