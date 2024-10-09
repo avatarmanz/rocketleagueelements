@@ -21,7 +21,7 @@ header {
 }
 
 h1 {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     font-weight: 600;
 }
 
@@ -49,7 +49,7 @@ nav a,
 nav a:hover {
     background-color: #ffffff;
     color: #ff6f20;
-    border-radius: 0px;
+    border-radius: 5px;
     transform: scale(1.05); /* Subtle zoom on hover */
 }
 
@@ -69,28 +69,26 @@ nav a:hover {
     background-color: #333;
     min-width: 160px;
     z-index: 1;
-    padding: 0; /* Remove padding around the entire dropdown */
+    padding: 10px 0;
     left: 50%;
     transform: translateX(-50%);
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
     border-radius: 8px;
-    overflow: hidden; /* Keep content within bounds */
 }
 
 .dropdown-content a {
     display: block;
     color: #ffffff;
-    padding: 8px 20px; /* Adjust padding to fit within the box */
+    padding: 8px 16px; /* Adjust padding to fit within the box */
     text-decoration: none;
     transition: background-color 0.3s ease;
-    border-radius: 0; /* Remove extra rounding */
-    width: 100%; /* Ensure the link takes up full width of the dropdown */
 }
 
 .dropdown-content a:hover {
     background-color: #ff6f20; /* Keeps the hover box inside the dropdown */
     color: #ffffff;
-    padding: 8px 20px; /* Ensure padding matches so the highlight fits */
+    padding: 8px 16px; /* Ensure padding matches so the highlight fits */
+    border-radius: 4px; /* Slight rounding for consistency */
 }
 
 .dropdown:hover .dropdown-content {
