@@ -233,6 +233,11 @@ th {
     opacity: 0.6;
 }
 
+.small-h1 {
+    font-size: 1.5rem; /* Adjust this size as needed */
+    font-weight: 500;  /* Optional: change the font weight */
+}
+
 .active, .demo:hover {
     opacity: 1;
 }
