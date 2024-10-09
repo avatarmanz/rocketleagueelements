@@ -79,14 +79,16 @@ nav a:hover {
 .dropdown-content a {
     display: block;
     color: #ffffff;
-    padding: 10px 20px;
+    padding: 8px 16px; /* Adjust padding to fit within the box */
     text-decoration: none;
     transition: background-color 0.3s ease;
 }
 
 .dropdown-content a:hover {
-    background-color: #ff6f20;
+    background-color: #ff6f20; /* Keeps the hover box inside the dropdown */
     color: #ffffff;
+    padding: 8px 16px; /* Ensure padding matches so the highlight fits */
+    border-radius: 4px; /* Slight rounding for consistency */
 }
 
 .dropdown:hover .dropdown-content {
