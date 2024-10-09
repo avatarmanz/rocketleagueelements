@@ -6,6 +6,9 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
+    html {
+    overflow-y: scroll;
+}
 }
 
 /* Header styling */
