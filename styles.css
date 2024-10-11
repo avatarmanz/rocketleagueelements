@@ -215,6 +215,26 @@ th {
     color: white;
 }
 
+/* Full-screen overlay styling */
+.fullscreen-overlay {
+    position: fixed;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9); /* Dark overlay background */
+    z-index: 9999; /* Highest z-index to ensure it goes on top */
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.fullscreen-overlay img {
+    max-width: 100vw;
+    max-height: 100vh;
+}
+
 /* Row and column styling for thumbnails */
 .row:after {
     content: "";
