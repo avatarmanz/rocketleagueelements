@@ -46,11 +46,6 @@ html {
     color: #ffffff;
 }
 
-/* Active link styling */
-.sidebar a.active {
-    color: #ff6f20; /* Change to orange for active page */
-}
-
 /* Content styling */
 section {
     margin-left: 250px; /* Push content to the right */
