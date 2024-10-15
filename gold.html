@@ -25,28 +25,69 @@
 </div>
 
 <section>
-<div class="embed-container">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/rDfs9yWaR7w?si=gCvL0gy8-5HmSlmg" title="Gold - Power Shots" frameborder="0" allowfullscreen></iframe>
+<div style="text-align: center;margin-top:20px;margin-bottom:25px;">
+    <iframe style="max-width: 100%; max-height: 100%;" width="560" height="315" 
+    src="https://www.youtube.com/embed/rDfs9yWaR7w?si=gCvL0gy8-5HmSlmg" title="Gold - Power Shots" 
+    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; 
+    picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+    </iframe>
 </div>
-<div class="embed-container">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/2xnNjXZ7Pvk?si=pCfcSsFNcw8No-ff" title="Gold - Catches" frameborder="0" allowfullscreen></iframe>
+<div style="text-align: center;margin-bottom:25px;">
+    <iframe style="max-width: 100%; max-height: 100%;" width="560" height="315" 
+    src="https://www.youtube.com/embed/2xnNjXZ7Pvk?si=pCfcSsFNcw8No-ff" title="Gold - Catches" 
+    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; 
+    picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+    </iframe>
 </div>
-<div class="embed-container">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/Pkd5uyYq-iE?si=C28b-h5-yR9D7kgS" title="Gold - Saves" frameborder="0" allowfullscreen></iframe>
+<div style="text-align: center;margin-bottom:25px;">
+    <iframe style="max-width: 100%; max-height: 100%;" width="560" height="315" 
+    src="https://www.youtube.com/embed/Pkd5uyYq-iE?si=C28b-h5-yR9D7kgS" title="Gold - Saves" 
+    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; 
+    picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+    </iframe>
 </div>
-<div class="embed-container">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/S5tCP5tqjw0?si=6z5ndyBkV1GD1_vU" title="Gold - Basic Aerials" frameborder="0" allowfullscreen></iframe>
+<div style="text-align: center;margin-bottom:25px;">
+    <iframe style="max-width: 100%; max-height: 100%;" width="560" height="315" 
+    src="https://www.youtube.com/embed/S5tCP5tqjw0?si=6z5ndyBkV1GD1_vU" title="Gold - Basic Aerials" 
+    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; 
+    picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+    </iframe>
 </div>
-<div class="embed-container">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/Fp03AhKOAkw?si=7Ja_-wZJ0XGHV_YJ" title="Gold - Basic Wall Shots" frameborder="0" allowfullscreen></iframe>
+<div style="text-align: center;margin-bottom:25px;">
+    <iframe style="max-width: 100%; max-height: 100%;" width="560" height="315" 
+    src="https://www.youtube.com/embed/Fp03AhKOAkw?si=7Ja_-wZJ0XGHV_YJ" title="Gold - Basic Wall Shots" 
+    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; 
+    picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+    </iframe>
 </div>
-<div class="embed-container">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/qpEHX8fHoYw?si=JMdw0fgORYTWkckS" title="Gold - 1v1 Replay Review" frameborder="0" allowfullscreen></iframe>
+<div style="text-align: center;margin-bottom:25px;">
+    <iframe style="max-width: 100%; max-height: 100%;" width="560" height="315" 
+    src="https://www.youtube.com/embed/qpEHX8fHoYw?si=JMdw0fgORYTWkckS" title="Gold - 1v1 Replay Review" 
+    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; 
+    picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+    </iframe>
 </div>
-<div class="embed-container">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/2oVhO3A8qSI?si=l5WT6hzimn7f68Tj" title="Gold - 2v2 Replay Review" frameborder="0" allowfullscreen></iframe>
+<div style="text-align: center;margin-bottom:25px;">
+    <iframe style="max-width: 100%; max-height: 100%;" width="560" height="315" 
+    src="https://www.youtube.com/embed/2oVhO3A8qSI?si=l5WT6hzimn7f68Tj" title="Gold - 2v2 Replay Review" 
+    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; 
+    picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+    </iframe>
 </div>
 </section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const links = document.querySelectorAll(".sidebar a");
+        const currentPath = window.location.pathname;
+
+        links.forEach(link => {
+            if (link.getAttribute("href") === currentPath) {
+                link.classList.add("active");
+            }
+        });
+    });
+</script>
 
 </body>
 </html>

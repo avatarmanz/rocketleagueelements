@@ -124,5 +124,18 @@ document.querySelectorAll('.mySlides img').forEach(img => {
     <p>3. Play the game and have fun until you reach Silver rank in 2s or 3s.</p>
 </section>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const links = document.querySelectorAll(".sidebar a");
+        const currentPath = window.location.pathname;
+
+        links.forEach(link => {
+            if (link.getAttribute("href") === currentPath) {
+                link.classList.add("active");
+            }
+        });
+    });
+</script>
+
 </body>
 </html>
