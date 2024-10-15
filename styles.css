@@ -1,10 +1,11 @@
 /* General body styling */
 body {
+    display: flex; /* Flexbox layout for sidebar and main content */
+    margin: 0;
+    padding: 0;
     font-family: 'Poppins', sans-serif;
     background-color: #1a1a1a;
     color: #ffffff;
-    margin: 0;
-    padding: 0;
     line-height: 1.6;
 }
 
@@ -13,86 +14,80 @@ html {
     overflow-y: scroll;
 }
 
+/* Sidebar styling */
+.sidebar {
+    width: 250px; /* Adjust width of sidebar */
+    background-color: #333;
+    padding-top: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh; /* Full height */
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column; /* Vertical alignment */
+    gap: 10px;
+    padding-left: 10px;
+}
+
+.sidebar a,
+.sidebar .dropdown span {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 15px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.sidebar a:hover {
+    background-color: #ff6f20;
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+/* Dropdown styling in sidebar */
+.sidebar .dropdown {
+    position: relative;
+}
+
+.sidebar .dropdown-content {
+    position: static; /* Static to appear in the flow */
+    display: none;
+    flex-direction: column;
+    padding: 0;
+}
+
+.sidebar .dropdown:hover .dropdown-content {
+    display: flex;
+}
+
+.sidebar .dropdown-content a {
+    padding-left: 30px; /* Indentation for dropdown items */
+}
+
+.sidebar .dropdown-content a:hover {
+    background-color: #ff6f20;
+    border-radius: 5px;
+}
+
+/* Content styling */
+section {
+    margin-left: 250px; /* Push content to the right */
+    padding: 20px;
+}
+
 /* Header styling */
 header {
     background-color: #ff6f20;
-    padding: 15px 30px; /* Reduced padding to decrease height */
+    padding: 15px;
     text-align: center;
 }
 
 h1 {
     font-size: 2.5rem;
     font-weight: 600;
-}
-
-/* Navigation styles */
-nav {
-    margin: 20px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: nowrap;
-    gap: 10px;
-}
-
-nav a,
-.dropdown span {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 1.2rem;
-    padding: 5px 15px;
-    line-height: 1.5;
-    white-space: nowrap;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-nav a:hover {
-    background-color: #ffffff;
-    color: #ff6f20;
-    border-radius: 5px;
-    transform: scale(1.05); /* Subtle zoom on hover */
-}
-
-/* Dropdown styling */
-.dropdown {
-    position: relative;
-}
-
-.dropdown span {
-    cursor: default;
-}
-
-/* Dropdown content */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #333;
-    min-width: 160px;
-    z-index: 1;
-    padding: 10px 0;
-    left: 50%;
-    transform: translateX(-50%);
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
-    border-radius: 8px;
-}
-
-.dropdown-content a {
-    display: block;
-    color: #ffffff;
-    padding: 8px 16px; /* Adjust padding to fit within the box */
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
-
-.dropdown-content a:hover {
-    background-color: #ff6f20; /* Keeps the hover box inside the dropdown */
-    color: #ffffff;
-    padding: 8px 16px; /* Ensure padding matches so the highlight fits */
-    border-radius: 4px; /* Slight rounding for consistency */
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
 }
 
 /* Button styling */
@@ -255,69 +250,34 @@ th {
     opacity: 1;
 }
 
-/* Footer styling */
-footer {
-    background-color: #222;
-    color: #ccc;
-    padding: 20px;
-    text-align: center;
-    font-size: 0.9rem;
-}
-
-footer a {
-    color: #ff6f20;
-    text-decoration: none;
-    margin: 0 10px;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
 /* Responsive navigation styles */
-@media (max-width: 1024px) {
-    nav {
-        gap: 5px;
-    }
-
-    nav a,
-    .dropdown span {
-        font-size: 1.1rem;
-    }
-}
-
 @media (max-width: 768px) {
-    header {
-        padding: 10px 20px; /* Reduced padding for medium screens */
+    .sidebar {
+        width: 200px; /* Narrow sidebar on smaller screens */
     }
 
-    h1 {
-        font-size: 2rem;
-    }
-
-    nav {
-        flex-wrap: wrap;
-    }
-
-    nav a,
-    .dropdown span {
+    .sidebar a,
+    .sidebar .dropdown span {
         font-size: 1rem;
-        padding: 4px 8px;
+    }
+
+    section {
+        margin-left: 200px; /* Adjust main content margin */
     }
 }
 
 @media (max-width: 480px) {
-    header {
-        padding: 8px 15px; /* Further reduced padding for small screens */
+    .sidebar {
+        width: 150px; /* Further narrow sidebar */
     }
 
-    nav a,
-    .dropdown span {
+    .sidebar a,
+    .sidebar .dropdown span {
         font-size: 0.9rem;
-        padding: 3px 6px;
+        padding: 8px 10px;
     }
 
-    nav {
-        flex-wrap: wrap;
+    section {
+        margin-left: 150px;
     }
 }
