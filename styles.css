@@ -76,6 +76,16 @@ html {
 section {
     margin-left: 250px; /* Push content to the right */
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+}
+
+/* Embed styling for centering */
+iframe {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0; /* Adjust spacing around the iframes */
 }
 
 /* Header styling */
@@ -106,11 +116,6 @@ button:hover {
     background-color: #ffffff;
     color: #ff6f20;
     transform: scale(1.05); /* Subtle zoom on hover */
-}
-
-/* Section styling */
-section {
-    padding: 20px;
 }
 
 /* Training packs table styling */
