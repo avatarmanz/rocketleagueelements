@@ -200,4 +200,35 @@ th {
 .active, .demo:hover {
     opacity: 1;
 }
+
+/* Responsive navigation styles */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px; /* Narrow sidebar on smaller screens */
+    }
+
+    .sidebar a,
+    .sidebar .dropdown span {
+        font-size: 1rem;
+    }
+
+    section {
+        margin-left: 200px; /* Adjust main content margin */
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 150px; /* Further narrow sidebar */
+    }
+
+    .sidebar a,
+    .sidebar .dropdown span {
+        font-size: 0.9rem;
+        padding: 8px 10px;
+    }
+
+    section {
+        margin-left: 150px;
+    }
 }
