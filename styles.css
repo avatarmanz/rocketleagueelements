@@ -58,12 +58,12 @@ body {
     line-height: 1.6;
 }
 
-/* Content styling */
+/* Ensure section content aligns in one column */
 section {
-    margin-left: 250px; /* Push content to the right */
+    margin-left: 250px; /* Keep content pushed to the right due to the sidebar */
     padding: 20px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Stack items in one column */
     align-items: center; /* Center content horizontally */
 }
 
@@ -251,8 +251,14 @@ th {
 }
 
 .column {
-    float: left;
-    width: 16.66%;
+    float: none;
+    width: 100%;
+}
+
+/* Ensure row items are stacked */
+.row {
+    display: flex;
+    flex-direction: column; /* Stack items in the row vertically */
 }
 
 .demo {
