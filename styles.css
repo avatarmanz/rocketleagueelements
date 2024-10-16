@@ -1,11 +1,11 @@
-/* Header*/
+/* Header */
 header {
     background-color: #ff6f20;
     padding: 15px;
     text-align: center;
 }
 
-/* Force scrollbar to always be visible */
+/* Force scrollbar always */
 html {
     overflow-y: scroll;
 }
@@ -62,7 +62,7 @@ section {
     align-items: center;
 }
 
-/* H1 Styling */
+/* h1 Styling */
 h1 {
     font-size: 2.5rem;
     font-weight: 600;
@@ -84,24 +84,6 @@ h1 {
     max-height: 100%;
     width: 560px;
     height: 315px;
-}
-
-/* Button styling */
-button {
-    color: #ffffff;
-    background-color: #ff6f20;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 1rem;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-button:hover {
-    background-color: #ffffff;
-    color: #ff6f20;
-    transform: scale(1.05); /* Subtle zoom on hover */
 }
 
 /* Training packs table styling */
