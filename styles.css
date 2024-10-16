@@ -1,12 +1,13 @@
-/* General body styling */
-body {
-    display: flex; /* Flexbox layout for sidebar and main content */
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: #1a1a1a;
-    color: #ffffff;
-    line-height: 1.6;
+/* Header styling */
+header {
+    background-color: #ff6f20;
+    padding: 15px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
 }
 
 /* Force scrollbar to always be visible */
@@ -46,9 +47,15 @@ html {
     color: #ffffff;
 }
 
-/* Active link styling */
-.sidebar a.active {
-    color: #ff6f20; /* Change to orange for active page */
+/* General body styling */
+body {
+    display: flex; /* Flexbox layout for sidebar and main content */
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    line-height: 1.6;
 }
 
 /* Content styling */
@@ -56,10 +63,10 @@ section {
     margin-left: 250px; /* Push content to the right */
     padding: 20px;
     display: flex;
-    flex-direction: column;
     align-items: center; /* Center content horizontally */
 }
 
+/* Embedded video styling */
 .embed-container {
     text-align: center;
     margin-bottom: 25px;
@@ -70,18 +77,6 @@ section {
     max-height: 100%;
     width: 560px;
     height: 315px;
-}
-
-/* Header styling */
-header {
-    background-color: #ff6f20;
-    padding: 15px;
-    text-align: center;
-}
-
-h1 {
-    font-size: 2.5rem;
-    font-weight: 600;
 }
 
 /* Button styling */
@@ -111,7 +106,7 @@ table {
     margin: 20px auto;
     border-collapse: collapse;
     width: 50%;
-    max-width: 600px;
+    max-width: 900px;
 }
 
 th, td {
@@ -265,4 +260,9 @@ th {
 
 .active, .demo:hover {
     opacity: 1;
+}
+
+/* Home page welcome text styling */
+.welcome-text {
+    text-align: center;
 }
