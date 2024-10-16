@@ -110,6 +110,24 @@ th {
     background-color: #ff6f20;
 }
 
+/* Training packs copy button styling */
+button {
+    color: #ffffff;
+    background-color: #ff6f20;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #ffffff;
+    color: #ff6f20;
+    transform: scale(1.05); /* Subtle zoom on hover */
+}
+
 /* Carousel styling */
 .carousel-container {
     max-width: 560px;
