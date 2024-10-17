@@ -8,7 +8,6 @@
 </head>
 <body>
 
-<!-- Wrap the nav inside a new sidebar container -->
 <div class="sidebar">
     <nav>
         <a href="home.html">Home</a>
@@ -24,9 +23,10 @@
     </nav>
 </div>
 
-<section>
-<section id="trainingpacks-text">
-    <h2 style="text-align:center">Click a code to copy it to your clipboard.</h2>
+<section id="trainingpacks-copy-text">
+    <h2>Click a code to copy it to your clipboard.</h2>
+</section>
+<section id="trainingpacks-table">
     <table>
         <thead>
             <tr>
@@ -178,6 +178,7 @@
     </table>
 </section>
 
+<!-- Copy code script -->
 <script>
     function copyToClipboard(code) {
         // Create a temporary input field to store the text
@@ -188,19 +189,6 @@
         document.execCommand('copy');
         document.body.removeChild(tempInput);
     }
-</script>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const links = document.querySelectorAll(".sidebar a");
-        const currentPath = window.location.pathname;
-
-        links.forEach(link => {
-            if (link.getAttribute("href") === currentPath) {
-                link.classList.add("active");
-            }
-        });
-    });
 </script>
 
 </body>
