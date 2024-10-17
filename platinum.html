@@ -8,7 +8,6 @@
 </head>
 <body>
 
-<!-- Wrap the nav inside a new sidebar container -->
 <div class="sidebar">
     <nav>
         <a href="home.html">Home</a>
@@ -29,19 +28,6 @@
     <h2>Platinum Under Development</h2>
     <p>Check back later or visit some other pages for more Rocket League information.<p>
 </section>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const links = document.querySelectorAll(".sidebar a");
-        const currentPath = window.location.pathname;
-
-        links.forEach(link => {
-            if (link.getAttribute("href") === currentPath) {
-                link.classList.add("active");
-            }
-        });
-    });
-</script>
 
 </body>
 </html>
