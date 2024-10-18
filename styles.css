@@ -58,7 +58,10 @@ h1 {
 
 /* Home page welcome text styling */
 .welcome-text {
+    margin-left: 250px;
+    padding: 20px;
     text-align: center;
+    
 }
 
 /* Embedded video styling */
