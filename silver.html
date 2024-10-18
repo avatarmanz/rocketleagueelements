@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<button class="menu-button" onclick="toggleSidebar()">☰ Menu</button>
+
 <div class="sidebar">
     <nav>
         <a href="index.html">Home</a>
@@ -51,6 +53,14 @@
     <p>3. Complete the Silver - Saves training pack and show competency as demonstrated.</p>
     <p>4. Watch one replay and find when you could have used the power shot, catch, or save skills to improve on your ball control during the game.</p>
 </section>
+
+<!-- Javascript for sidebar -->
+<script>
+    function toggleSidebar() {
+        const sidebar = document.querySelector('.sidebar');
+        sidebar.classList.toggle('active');
+    }
+</script>
 
 </body>
 </html>
