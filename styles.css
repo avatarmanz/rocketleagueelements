@@ -196,6 +196,7 @@ button:hover {
         border: none;
         padding: 10px 10px;
         font-size: 1.5rem;
+        line-height: 1;
         cursor: pointer;
         text-align: center;
         position: fixed;
