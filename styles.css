@@ -60,11 +60,17 @@ h1 {
 }
 
 /* Home page welcome text styling */
-.welcome-text {
+section#welcome {
     margin-left: 200px;
     padding: 20px;
     text-align: center;
-    
+}
+
+/* Bronze My Settings text styling */
+section#bronze-my-settings {
+    margin-left: 200px;
+    padding: 20px;
+    text-align: center;
 }
 
 /* Embedded video styling */
