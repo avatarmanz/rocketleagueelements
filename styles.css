@@ -182,31 +182,19 @@ button:hover {
     max-height: 100vh;
 }
 
-/* Mobile friendly sizing of content and hamburger menu for navigation */
+/* Hide the menu button on larger screens */
+.menu-button {
+    display: none;
+}
+
+/* Mobile-friendly styles */
 @media (max-width: 768px) {
-    .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-        display: none;
-    }
-
-    .sidebar nav {
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-
-    body {
-        margin-left: 0;
-    }
-
-    /* Hamburger menu button */
     .menu-button {
         display: block;
         background-color: #ff6f20;
         color: white;
         border: none;
-        padding: 10px 15px;
+        padding: 10px 10px;
         font-size: 1.5rem;
         cursor: pointer;
         text-align: center;
@@ -214,18 +202,29 @@ button:hover {
         top: 10px;
         right: 10px;
         z-index: 1000;
-        border-radius: 5px;
+        border-radius: 10px;
     }
 
-    /* Show the sidebar when active */
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        display: none;
+    }
+
     .sidebar.active {
-        display: block;
+        display: flex;
         position: fixed;
+        flex-direction: column;
         top: 0;
         left: 0;
         width: 80%;
         height: 100vh;
         background-color: #333;
         z-index: 999;
+    }
+
+    body {
+        margin-left: 0;
     }
 }
