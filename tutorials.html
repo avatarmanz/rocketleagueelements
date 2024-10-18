@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<button class="menu-button" onclick="toggleSidebar()">☰ Menu</button>
+
 <div class="sidebar">
     <nav>
         <a href="index.html">Home</a>
@@ -37,6 +39,14 @@
     <iframe src="https://www.youtube.com/embed/PbR1MMMFCTM?si=hGLtEdcl1yM-_FrC" title="Speed Flip" allowfullscreen></iframe>
 </div>
 </section>
+
+<!-- Javascript for sidebar -->
+<script>
+    function toggleSidebar() {
+        const sidebar = document.querySelector('.sidebar');
+        sidebar.classList.toggle('active');
+    }
+</script>
 
 </body>
 </html>
