@@ -26,12 +26,13 @@ html {
     flex-direction: column;
     gap: 10px;
     padding-left: 10px;
+    padding-right: 10px;
 }
 
 .sidebar a {
     color: #ffffff;
     text-decoration: none;
-    padding: 10px 15px;
+    padding: 10px 10px;
     font-size: 1.2rem;
     transition: background-color 0.3s ease, transform 0.3s ease;
     border-radius: 5px;
