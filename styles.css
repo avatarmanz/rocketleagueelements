@@ -80,6 +80,13 @@ section#welcome {
     border: 0;
 }
 
+/* Silver to-do list text styling */
+section#silver-to-do {
+    margin-left: 200px;
+    padding: 20px;
+    text-align: center;
+}
+
 /* Platinum under development text styling */
 section#platinum-under-development {
     margin-left: 200px;
