@@ -228,4 +228,21 @@ button:hover {
     body {
         margin-left: 0;
     }
+    
+    table {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto; /* Center the table */
+    }
+
+    th, td {
+        padding: 8px; /* Reduce padding to fit more content */
+        font-size: 0.9rem; /* Adjust font size for better fit */
+    }
+
+    /* Ensure button doesn't take too much space */
+    button {
+        padding: 8px 8px; /* Slightly reduce button padding */
+        font-size: 0.9rem; /* Reduce font size on mobile */
+    }
 }
