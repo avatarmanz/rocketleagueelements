@@ -12,7 +12,7 @@ html {
 
 /* Sidebar styling */
 .sidebar {
-    width: 250px;
+    width: 200px;
     background-color: #333;
     padding-top: 20px;
     position: fixed;
@@ -48,7 +48,7 @@ body {
     background-color: #1a1a1a;
     color: #ffffff;
     line-height: 1.6;
-    margin-left: 250px;
+    margin-left: 200px;
     padding: 20px;
 }
 
@@ -60,7 +60,7 @@ h1 {
 
 /* Home page welcome text styling */
 .welcome-text {
-    margin-left: 250px;
+    margin-left: 200px;
     padding: 20px;
     text-align: center;
     
