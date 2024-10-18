@@ -80,6 +80,34 @@ section#welcome {
     border: 0;
 }
 
+/* Platinum under development text styling */
+section#platinum-under-development {
+    margin-left: 200px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Diamond under development text styling */
+section#diamond-under-development {
+    margin-left: 200px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Champion under development text styling */
+section#champion-under-development {
+    margin-left: 200px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Grand Champion under development text styling */
+section#grandchampion-under-development {
+    margin-left: 200px;
+    padding: 20px;
+    text-align: center;
+}
+
 /* Training packs table styling */
 section#trainingpacks {
     text-align: center;
