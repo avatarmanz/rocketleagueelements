@@ -44,24 +44,10 @@ html {
 
 /* General body styling */
 body {
-    display: flex;
-    margin: 0;
-    padding: 0;
     font-family: 'Poppins', sans-serif;
     background-color: #1a1a1a;
     color: #ffffff;
     line-height: 1.6;
-}
-
-/* Ensure section content aligns in one column */
-section {
-    margin-left: 250px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
 }
 
 /* h1 Styling */
@@ -171,7 +157,7 @@ button:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* Full-screen overlay styling */
+/* Carousel full-screen overlay styling */
 .fullscreen-overlay {
     position: fixed;
     display: none;
@@ -179,8 +165,8 @@ button:hover {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.9); /* Dark overlay background */
-    z-index: 9999; /* Highest z-index to ensure it goes on top */
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
     justify-content: center;
     align-items: center;
     cursor: pointer;
