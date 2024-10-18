@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<button class="menu-button" onclick="toggleSidebar()">☰ Menu</button>
+
 <div class="sidebar">
     <nav>
         <a href="index.html">Home</a>
@@ -46,6 +48,14 @@
     <iframe src="https://www.youtube.com/embed/2oVhO3A8qSI?si=l5WT6hzimn7f68Tj" title="Gold - 2v2 Replay Review" allowfullscreen></iframe>
 </div>
 </section>
+
+<!-- Javascript for sidebar -->
+<script>
+    function toggleSidebar() {
+        const sidebar = document.querySelector('.sidebar');
+        sidebar.classList.toggle('active');
+    }
+</script>
 
 </body>
 </html>
