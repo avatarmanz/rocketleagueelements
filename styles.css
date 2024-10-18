@@ -115,6 +115,13 @@ section#grandchampion-under-development {
     text-align: center;
 }
 
+/* Training packs copy text styling */
+section#trainingpacks-copy-text {
+    margin-left: 200px;
+    padding: 20px;
+    text-align: center;
+}
+
 /* Training packs table styling */
 section#trainingpacks {
     text-align: center;
