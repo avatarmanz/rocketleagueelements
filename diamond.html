@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<button class="menu-button" onclick="toggleSidebar()">☰ Menu</button>
+
 <div class="sidebar">
     <nav>
         <a href="index.html">Home</a>
@@ -27,6 +29,14 @@
     <h1>Diamond Under Development</h1>
     <p>Check back later or visit some other pages for more Rocket League information.<p>
 </section>
+
+<!-- Javascript for sidebar -->
+<script>
+    function toggleSidebar() {
+        const sidebar = document.querySelector('.sidebar');
+        sidebar.classList.toggle('active');
+    }
+</script>
 
 </body>
 </html>
