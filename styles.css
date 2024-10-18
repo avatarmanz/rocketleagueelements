@@ -1,7 +1,7 @@
 /* Header */
 header {
     background-color: #ff6f20;
-    padding: 15px;
+    padding: 10px;
     text-align: center;
 }
 
@@ -50,7 +50,15 @@ body {
     color: #ffffff;
     line-height: 1.6;
     margin-left: 200px;
+    text-align: center;
     padding: 20px;
+}
+
+/* General section styling for all pages */
+section {
+    margin-left: 200px;
+    padding: 20px;
+    text-align: center;
 }
 
 /* h1 Styling */
@@ -59,15 +67,9 @@ h1 {
     font-weight: 600;
 }
 
-/* Home page welcome text styling */
-section#welcome {
-    margin-left: 200px;
-    padding: 20px;
-    text-align: center;
-}
-
 /* Embedded video styling */
 .embed-container {
+    margin-left: 200px;
     text-align: center;
     margin-bottom: 25px;
 }
@@ -78,48 +80,6 @@ section#welcome {
     width: 560px;
     height: 315px;
     border: 0;
-}
-
-/* Silver to-do list text styling */
-section#silver-to-do {
-    margin-left: 200px;
-    padding: 20px;
-    text-align: center;
-}
-
-/* Platinum under development text styling */
-section#platinum-under-development {
-    margin-left: 200px;
-    padding: 20px;
-    text-align: center;
-}
-
-/* Diamond under development text styling */
-section#diamond-under-development {
-    margin-left: 200px;
-    padding: 20px;
-    text-align: center;
-}
-
-/* Champion under development text styling */
-section#champion-under-development {
-    margin-left: 200px;
-    padding: 20px;
-    text-align: center;
-}
-
-/* Grand Champion under development text styling */
-section#grandchampion-under-development {
-    margin-left: 200px;
-    padding: 20px;
-    text-align: center;
-}
-
-/* Training packs copy text styling */
-section#trainingpacks-copy-text {
-    margin-left: 200px;
-    padding: 20px;
-    text-align: center;
 }
 
 /* Training packs table styling */
