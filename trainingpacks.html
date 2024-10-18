@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<button class="menu-button" onclick="toggleSidebar()">☰ Menu</button>
+
 <div class="sidebar">
     <nav>
         <a href="index.html">Home</a>
@@ -188,6 +190,14 @@
         tempInput.select();
         document.execCommand('copy');
         document.body.removeChild(tempInput);
+    }
+</script>
+
+<!-- Javascript for sidebar -->
+<script>
+    function toggleSidebar() {
+        const sidebar = document.querySelector('.sidebar');
+        sidebar.classList.toggle('active');
     }
 </script>
 
