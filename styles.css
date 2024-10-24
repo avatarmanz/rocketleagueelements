@@ -19,6 +19,13 @@ html {
     top: 0;
     left: 0;
     height: 100vh;
+    transform: translateX(-100%); /* Hide sidebar off-screen */
+    transition: transform 0.3s ease; /* Slide animation */
+}
+
+/* When the sidebar is active (open) */
+.sidebar.active {
+    transform: translateX(0); /* Slide sidebar into view */
 }
 
 .sidebar nav {
@@ -207,22 +214,14 @@ button:hover {
     }
 
     .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-        display: none;
+        width: 80%;
+        height: 100vh;
+        transform: translateX(-100%); /* Sidebar starts off-screen on mobile */
+        transition: transform 0.3s ease; /* Slide animation */
     }
 
     .sidebar.active {
-        display: flex;
-        flex-direction: column;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 80%;
-        height: 100vh;
-        background-color: #333;
-        z-index: 999;
+        transform: translateX(0); /* Sidebar slides in when active */
     }
 
     body {
