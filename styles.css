@@ -19,13 +19,8 @@ html {
     top: 0;
     left: 0;
     height: 100vh;
-    transform: translateX(-100%); /* Hide sidebar off-screen */
-    transition: transform 0.3s ease; /* Slide animation */
-}
-
-/* When the sidebar is active (open) */
-.sidebar.active {
-    transform: translateX(0); /* Slide sidebar into view */
+    transform: translateX(0); /* Sidebar always visible on larger screens */
+    transition: transform 0.3s ease; /* Slide animation for mobile */
 }
 
 .sidebar nav {
@@ -216,12 +211,11 @@ button:hover {
     .sidebar {
         width: 80%;
         height: 100vh;
-        transform: translateX(-100%); /* Sidebar starts off-screen on mobile */
-        transition: transform 0.3s ease; /* Slide animation */
+        transform: translateX(-100%); /* Sidebar hidden off-screen on mobile */
     }
 
     .sidebar.active {
-        transform: translateX(0); /* Sidebar slides in when active */
+        transform: translateX(0); /* Sidebar slides in when active on mobile */
     }
 
     body {
