@@ -19,8 +19,9 @@ html {
     top: 0;
     left: 0;
     height: 100vh;
-    transform: translateX(0); /* Sidebar always visible on larger screens */
-    transition: transform 0.3s ease; /* Slide animation for mobile */
+    transform: none; /* Sidebar always visible on larger screens */
+    transition: transform 0.3s ease; /* Transition for mobile sliding */
+    z-index: 100; /* Ensure sidebar is above the content */
 }
 
 .sidebar nav {
@@ -51,7 +52,7 @@ body {
     background-color: #1a1a1a;
     color: #ffffff;
     line-height: 1.6;
-    margin-left: 200px;
+    margin-left: 200px; /* Offset content by sidebar width on desktop */
     text-align: center;
     padding: 10px;
 }
@@ -211,15 +212,15 @@ button:hover {
     .sidebar {
         width: 80%;
         height: 100vh;
-        transform: translateX(-100%); /* Sidebar hidden off-screen on mobile */
+        transform: translateX(-100%); /* Sidebar hidden off-screen initially on mobile */
     }
 
     .sidebar.active {
-        transform: translateX(0); /* Sidebar slides in when active on mobile */
+        transform: translateX(0); /* Slide into view when active */
     }
 
     body {
-        margin-left: 0;
+        margin-left: 0; /* Remove left margin for mobile */
     }
     
     table {
