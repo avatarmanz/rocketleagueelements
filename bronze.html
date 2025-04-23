@@ -1,139 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rocket League Elements</title>
-    <link rel="stylesheet" href="/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bronze Rank Training - Rocket League</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <header>
+    <h1>Bronze Rank Training</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="bronze.html" class="active">Bronze</a>
+      <a href="silver.html">Silver</a>
+      <a href="gold.html">Gold</a>
+      <a href="training.html">Training Packs</a>
+      <a href="tutorials.html">Tutorials</a>
+    </nav>
+  </header>
 
-<button class="menu-button" onclick="toggleSidebar()">☰</button>
-    
-    <div class="sidebar">
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="bronze.html">Bronze</a>
-            <a href="silver.html">Silver</a>
-            <a href="gold.html">Gold</a>
-            <a href="platinum.html">Platinum</a>
-            <a href="diamond.html">Diamond</a>
-            <a href="champion.html">Champion</a>
-            <a href="grandchampion.html">Grand Champion</a>
-            <a href="trainingpacks.html">Training Packs</a>
-            <a href="tutorials.html">Tutorials</a>
-        </nav>
-    </div>
+  <main>
+    <section>
+      <h2>Video Guides</h2>
+      <p>Watch these essential videos to improve your gameplay as a Bronze player in Rocket League:</p>
 
-<section id="bronze-videos">
-<div class="embed-container">
-    <iframe src="https://www.youtube.com/embed/znGrlrLWIOo?si=k-ureV-6rLCseqMT" title="Bronze - Menu Navigation" allowfullscreen></iframe>
-</div>
-<div class="embed-container">
-    <iframe src="https://www.youtube.com/embed/eUCSNcoLOZQ?si=-XyZpwezyXLwUBhO" title="Bronze - Settings" allowfullscreen></iframe>
-</div>
-<div class="embed-container">
-    <iframe src="https://www.youtube.com/embed/i1cPeD6Qqdg?si=up4cDIm2Plr-0HTs" title="Bronze - Physics" allowfullscreen></iframe>
-</div>
-</section>
-
-<section id="bronze-my-settings">
-    <h1>My Settings</h1>
-</section>
-
-    <section id="bronze-carousel">
-    <div class="carousel-container">
-        <div class="container">
-            <div class="mySlides">
-                <img src="Gameplay.png" alt="Gameplay Settings">
-            </div>
-            <div class="mySlides">
-                <img src="Camera.png" alt="Camera Settings">
-            </div>
-            <div class="mySlides">
-                <img src="Controls.png" alt="Controls Settings">
-            </div>
-            <div class="mySlides">
-                <img src="Controller.png" alt="Controller Settings">
-            </div>
-            <div class="mySlides">
-                <img src="Interface.png" alt="Interface Settings">
-            </div>
-            <div class="mySlides">
-                <img src="Video.png" alt="Video Settings">
-            </div>
-            <div class="mySlides">
-                <img src="Audio.png" alt="Audio Settings">
-            </div>
-            <div class="mySlides">
-                <img src="Chat.png" alt="Chat Settings">
-            </div>
-
-            <a class="prev" onclick="plusSlides(-1)">❮</a>
-            <a class="next" onclick="plusSlides(1)">❯</a>
+      <div class="video-gallery">
+        <div class="video-buttons">
+          <button onclick="changeVideo('ZgkXfemD_Sg')">Kickoff Tips</button>
+          <button onclick="changeVideo('xGQvq4jUVVc')">Positioning Basics</button>
+          <button onclick="changeVideo('Wyls2KRLGu4')">Boost Management</button>
         </div>
-    </div>
+        <div class="video-player">
+          <iframe id="youtubePlayer" width="100%" height="500"
+            src="https://www.youtube.com/embed/ZgkXfemD_Sg"
+            frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    <!-- Full-screen image overlay -->
-    <div id="fullscreenOverlay" class="fullscreen-overlay" onclick="closeFullscreen()">
-        <img id="fullscreenImage" src="" alt="Full Screen Image">
-    </div>
+  <footer>
+    <p>&copy; 2025 Rocket League Training Hub</p>
+  </footer>
 
-<script>
-let slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-    showSlides(slideIndex += n);
-}
-
-function showSlides(n) {
-    let i;
-    let slides = document.getElementsByClassName("mySlides");
-    if (n > slides.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = slides.length}
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
+  <script>
+    function changeVideo(videoId) {
+      const player = document.getElementById('youtubePlayer');
+      player.src = `https://www.youtube.com/embed/${videoId}`;
     }
-    slides[slideIndex - 1].style.display = "block";
-}
-
-// Show full-screen image
-function showFullscreen(imgSrc) {
-    const overlay = document.getElementById('fullscreenOverlay');
-    const fullscreenImage = document.getElementById('fullscreenImage');
-    fullscreenImage.src = imgSrc;
-    overlay.style.display = 'flex';
-}
-
-// Close full-screen image
-function closeFullscreen() {
-    const overlay = document.getElementById('fullscreenOverlay');
-    overlay.style.display = 'none';
-}
-
-// Add click event to each slide image to show it in full-screen
-document.querySelectorAll('.mySlides img').forEach(img => {
-    img.addEventListener('click', () => showFullscreen(img.src));
-});
-</script>
-</section>
-    
-<section id="bronze-to-do">
-  <div style="text-align: center;">
-    <h1>To-Do List:</h1>
-    <p>1. Get good camera settings.</p>
-    <p>2. Get good control settings.</p>
-    <p>3. Play the game and have fun until you reach Silver rank in 2s or 3s.</p>
-</section>
-
-<!-- Javascript for sidebar -->
-<script>
-    function toggleSidebar() {
-        const sidebar = document.querySelector('.sidebar');
-        sidebar.classList.toggle('active');
-    }
-</script>
-
+  </script>
 </body>
 </html>
