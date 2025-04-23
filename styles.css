@@ -1,242 +1,83 @@
-/* Header */
-header {
-    background-color: #ff6f20;
-    padding: 10px;
-    text-align: center;
-}
-
-/* Force scrollbar always */
-html {
-    overflow-y: scroll;
-}
-
-/* Sidebar styling */
-.sidebar {
-    width: 200px;
-    background-color: #333;
-    padding-top: 10px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    transform: none; /* Sidebar always visible on larger screens */
-    transition: transform 0.3s ease; /* Transition for mobile sliding */
-    z-index: 100; /* Ensure sidebar is above the content */
-}
-
-.sidebar nav {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.sidebar a {
-    color: #ffffff;
-    text-decoration: none;
-    padding: 10px 10px;
-    font-size: 1.1rem;
-    transition: background-color 0.1s ease, transform 0.1s ease;
-    border-radius: 10px;
-}
-
-.sidebar a:hover {
-    background-color: #ff6f20;
-    color: #ffffff;
-}
-
-/* General body styling */
+/* Existing styles */
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #1a1a1a;
-    color: #ffffff;
-    line-height: 1.6;
-    margin-left: 200px; /* Offset content by sidebar width on desktop */
-    text-align: center;
-    padding: 10px;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #121212;
+  color: #ffffff;
 }
 
-/* General section styling for all pages */
+header {
+  background-color: #1f1f1f;
+  padding: 1em;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2em;
+}
+
+nav {
+  margin-top: 0.5em;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+nav a.active {
+  color: #00bfff;
+}
+
+main {
+  padding: 2em;
+}
+
 section {
-    padding: 10px;
-    text-align: center;
+  max-width: 900px;
+  margin: auto;
 }
 
-/* h1 Styling */
-h1 {
-    font-size: 2.5rem;
-    font-weight: 600;
+footer {
+  text-align: center;
+  padding: 1em;
+  background-color: #1f1f1f;
+  margin-top: 2em;
 }
 
-/* Embedded video styling */
-.embed-container {
-    text-align: center;
-    margin-bottom: 25px;
+/* New video gallery styles */
+.video-gallery {
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
 }
 
-.embed-container iframe {
-    max-width: 100%;
-    max-height: 100%;
-    width: 560px;
-    height: 315px;
-    border: 0;
+.video-buttons {
+  margin-bottom: 15px;
 }
 
-/* Training packs table styling */
-section#trainingpacks {
-    text-align: center;
+.video-buttons button {
+  background-color: #0e76a8;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 0 5px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
 
-table {
-    margin: 10px auto;
-    border-collapse: collapse;
-    width: 50%;
-    max-width: 900px;
+.video-buttons button:hover {
+  background-color: #095a7a;
 }
 
-th, td {
-    border: 2px solid #ffffff;
-    padding: 10px;
-    text-align: center;
-}
-
-th {
-    background-color: #ff6f20;
-}
-
-/* Training packs copy button styling */
-button {
-    color: #ffffff;
-    background-color: #ff6f20;
-    border: none;
-    padding: 10px 10px;
-    cursor: pointer;
-    border-radius: 50px;
-    font-size: 1rem;
-    transition: background-color 0.1s ease, transform 0.1s ease;
-}
-
-button:hover {
-    background-color: #ffffff;
-    color: #ff6f20;
-    transform: scale(1.05); /* Subtle zoom on hover */
-}
-
-/* Carousel styling */
-.carousel-container {
-    max-width: 560px;
-    margin: auto;
-    position: relative;
-}
-
-.mySlides {
-    display: none;
-}
-
-.mySlides img {
-    width: 100%;
-    height: auto;
-}
-
-/* Carousel arrow styling */
-.prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    padding: 10px;
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-    user-select: none;
-    transform: translateY(-50%);
-    z-index: 1;
-}
-
-.prev {
-    left: 10px;
-}
-
-.next {
-    right: 10px;
-}
-
-.prev:hover, .next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* Carousel full-screen overlay styling */
-.fullscreen-overlay {
-    position: fixed;
-    display: none;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.9);
-    z-index: 9999;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
-
-.fullscreen-overlay img {
-    max-width: 100vw;
-    max-height: 100vh;
-}
-
-/* Hide the menu button on larger screens */
-.menu-button {
-    display: none;
-}
-
-/* Mobile-friendly styles */
-@media (max-width: 768px) {
-    .menu-button {
-        display: block;
-        background-color: #ff6f20;
-        color: white;
-        border: none;
-        padding: 10px 10px;
-        font-size: 1.5rem;
-        line-height: 1;
-        cursor: pointer;
-        text-align: center;
-        position: fixed;
-        top: 10px;
-        left: 10px;
-        z-index: 1000;
-        border-radius: 10px;
-    }
-
-    .sidebar {
-        width: 80%;
-        height: 100vh;
-        transform: translateX(-100%); /* Sidebar hidden off-screen initially on mobile */
-    }
-
-    .sidebar.active {
-        transform: translateX(0); /* Slide into view when active */
-    }
-
-    body {
-        margin-left: 0; /* Remove left margin for mobile */
-    }
-    
-    table {
-        width: 100%;
-        max-width: 100%;
-        margin: 0 auto; /* Center the table */
-    }
-
-    th, td {
-        padding: 8px; /* Reduce padding to fit more content */
-        font-size: 0.9rem; /* Adjust font size for better fit */
-    }
-
-    /* Ensure button doesn't take too much space */
-    button {
-        padding: 8px 8px; /* Slightly reduce button padding */
-        font-size: 0.9rem; /* Reduce font size on mobile */
-    }
+.video-player iframe {
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  width: 100%;
+  height: 500px;
 }
