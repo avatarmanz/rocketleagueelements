@@ -1,52 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang=en>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rocket League Elements</title>
-    <link rel="stylesheet" href="/styles.css">
+<meta charset=UTF-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Rocket League Elements</title>
+<link rel=stylesheet href=/styles.css>
 </head>
 <body>
-
-<button class="menu-button" onclick="toggleSidebar()">☰</button>
-
-<div class="sidebar">
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="bronze.html">Bronze</a>
-        <a href="silver.html">Silver</a>
-        <a href="gold.html">Gold</a>
-        <a href="platinum.html">Platinum</a>
-        <a href="diamond.html">Diamond</a>
-        <a href="champion.html">Champion</a>
-        <a href="grandchampion.html">Grand Champion</a>
-        <a href="trainingpacks.html">Training Packs</a>
-        <a href="tutorials.html">Tutorials</a>
-    </nav>
+<button class=menu-button onclick=toggleSidebar()>☰</button>
+<div class=sidebar>
+<nav>
+<a href=index.html>Home</a>
+<a href=bronze.html>Bronze</a>
+<a href=silver.html>Silver</a>
+<a href=gold.html>Gold</a>
+<a href=platinum.html>Platinum</a>
+<a href=diamond.html>Diamond</a>
+<a href=champion.html>Champion</a>
+<a href=grandchampion.html>Grand Champion</a>
+<a href=trainingpacks.html>Training Packs</a>
+<a href=tutorials.html>Tutorials</a>
+</nav>
 </div>
-
-<section id="tutorials-videos">
-<div class="embed-container">
-    <iframe src="https://www.youtube.com/embed/bmnALGzj_LE?si=E0KxxBkp6fvnK0JX" title="45 Degree Flick" allowfullscreen></iframe>
+<section id=tutorials-videos>
+<div class=embed-container>
+<iframe src="https://www.youtube.com/embed/bmnALGzj_LE?si=E0KxxBkp6fvnK0JX" title="45 Degree Flick" allowfullscreen></iframe>
 </div>
-<div class="embed-container">
-    <iframe src="https://www.youtube.com/embed/2EgWdJcKxKI?si=O2tRELkP7-38Mc6n" title="Half Flip" allowfullscreen></iframe>
+<div class=embed-container>
+<iframe src="https://www.youtube.com/embed/2EgWdJcKxKI?si=O2tRELkP7-38Mc6n" title="Half Flip" allowfullscreen></iframe>
 </div>
-<div class="embed-container">
-    <iframe src="https://www.youtube.com/embed/BPoKmo3h8fc?si=zNiRQFZVXf7-4bjQ" title="Kickoff" allowfullscreen></iframe>
+<div class=embed-container>
+<iframe src="https://www.youtube.com/embed/BPoKmo3h8fc?si=zNiRQFZVXf7-4bjQ" title=Kickoff allowfullscreen></iframe>
 </div>
-<div class="embed-container">
-    <iframe src="https://www.youtube.com/embed/PbR1MMMFCTM?si=hGLtEdcl1yM-_FrC" title="Speed Flip" allowfullscreen></iframe>
+<div class=embed-container>
+<iframe src="https://www.youtube.com/embed/PbR1MMMFCTM?si=hGLtEdcl1yM-_FrC" title="Speed Flip" allowfullscreen></iframe>
 </div>
 </section>
-
-<!-- Javascript for sidebar -->
-<script>
-    function toggleSidebar() {
-        const sidebar = document.querySelector('.sidebar');
-        sidebar.classList.toggle('active');
-    }
-</script>
-
+<script>function toggleSidebar(){document.querySelector(".sidebar").classList.toggle("active")}</script>
 </body>
 </html>
