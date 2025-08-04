@@ -1,139 +1,84 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang=en>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rocket League Elements</title>
-    <link rel="stylesheet" href="/styles.css">
+<meta charset=UTF-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Rocket League Elements</title>
+<link rel=stylesheet href=/styles.css>
 </head>
 <body>
-
-<button class="menu-button" onclick="toggleSidebar()">☰</button>
-    
-    <div class="sidebar">
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="bronze.html">Bronze</a>
-            <a href="silver.html">Silver</a>
-            <a href="gold.html">Gold</a>
-            <a href="platinum.html">Platinum</a>
-            <a href="diamond.html">Diamond</a>
-            <a href="champion.html">Champion</a>
-            <a href="grandchampion.html">Grand Champion</a>
-            <a href="trainingpacks.html">Training Packs</a>
-            <a href="tutorials.html">Tutorials</a>
-        </nav>
-    </div>
-
-<section id="bronze-videos">
-<div class="embed-container">
-    <iframe src="https://www.youtube.com/embed/znGrlrLWIOo?si=k-ureV-6rLCseqMT" title="Bronze - Menu Navigation" allowfullscreen></iframe>
+<button class=menu-button onclick=toggleSidebar()>☰</button>
+<div class=sidebar>
+<nav>
+<a href=index.html>Home</a>
+<a href=bronze.html>Bronze</a>
+<a href=silver.html>Silver</a>
+<a href=gold.html>Gold</a>
+<a href=platinum.html>Platinum</a>
+<a href=diamond.html>Diamond</a>
+<a href=champion.html>Champion</a>
+<a href=grandchampion.html>Grand Champion</a>
+<a href=trainingpacks.html>Training Packs</a>
+<a href=tutorials.html>Tutorials</a>
+</nav>
 </div>
-<div class="embed-container">
-    <iframe src="https://www.youtube.com/embed/eUCSNcoLOZQ?si=-XyZpwezyXLwUBhO" title="Bronze - Settings" allowfullscreen></iframe>
+<section id=bronze-videos>
+<div class=embed-container>
+<iframe src="https://www.youtube.com/embed/znGrlrLWIOo?si=k-ureV-6rLCseqMT" title="Bronze - Menu Navigation" allowfullscreen></iframe>
 </div>
-<div class="embed-container">
-    <iframe src="https://www.youtube.com/embed/i1cPeD6Qqdg?si=up4cDIm2Plr-0HTs" title="Bronze - Physics" allowfullscreen></iframe>
+<div class=embed-container>
+<iframe src="https://www.youtube.com/embed/eUCSNcoLOZQ?si=-XyZpwezyXLwUBhO" title="Bronze - Settings" allowfullscreen></iframe>
+</div>
+<div class=embed-container>
+<iframe src="https://www.youtube.com/embed/i1cPeD6Qqdg?si=up4cDIm2Plr-0HTs" title="Bronze - Physics" allowfullscreen></iframe>
 </div>
 </section>
-
-<section id="bronze-my-settings">
-    <h1>My Settings</h1>
+<section id=bronze-my-settings>
+<h1>My Settings</h1>
 </section>
-
-    <section id="bronze-carousel">
-    <div class="carousel-container">
-        <div class="container">
-            <div class="mySlides">
-                <img src="Gameplay.png" alt="Gameplay Settings">
-            </div>
-            <div class="mySlides">
-                <img src="Camera.png" alt="Camera Settings">
-            </div>
-            <div class="mySlides">
-                <img src="Controls.png" alt="Controls Settings">
-            </div>
-            <div class="mySlides">
-                <img src="Controller.png" alt="Controller Settings">
-            </div>
-            <div class="mySlides">
-                <img src="Interface.png" alt="Interface Settings">
-            </div>
-            <div class="mySlides">
-                <img src="Video.png" alt="Video Settings">
-            </div>
-            <div class="mySlides">
-                <img src="Audio.png" alt="Audio Settings">
-            </div>
-            <div class="mySlides">
-                <img src="Chat.png" alt="Chat Settings">
-            </div>
-
-            <a class="prev" onclick="plusSlides(-1)">❮</a>
-            <a class="next" onclick="plusSlides(1)">❯</a>
-        </div>
-    </div>
-
-    <!-- Full-screen image overlay -->
-    <div id="fullscreenOverlay" class="fullscreen-overlay" onclick="closeFullscreen()">
-        <img id="fullscreenImage" src="" alt="Full Screen Image">
-    </div>
-
-<script>
-let slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-    showSlides(slideIndex += n);
-}
-
-function showSlides(n) {
-    let i;
-    let slides = document.getElementsByClassName("mySlides");
-    if (n > slides.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = slides.length}
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    slides[slideIndex - 1].style.display = "block";
-}
-
-// Show full-screen image
-function showFullscreen(imgSrc) {
-    const overlay = document.getElementById('fullscreenOverlay');
-    const fullscreenImage = document.getElementById('fullscreenImage');
-    fullscreenImage.src = imgSrc;
-    overlay.style.display = 'flex';
-}
-
-// Close full-screen image
-function closeFullscreen() {
-    const overlay = document.getElementById('fullscreenOverlay');
-    overlay.style.display = 'none';
-}
-
-// Add click event to each slide image to show it in full-screen
-document.querySelectorAll('.mySlides img').forEach(img => {
-    img.addEventListener('click', () => showFullscreen(img.src));
-});
-</script>
+<section id=bronze-carousel>
+<div class=carousel-container>
+<div class=container>
+<div class=mySlides>
+<img src=Gameplay.png alt="Gameplay Settings">
+</div>
+<div class=mySlides>
+<img src=Camera.png alt="Camera Settings">
+</div>
+<div class=mySlides>
+<img src=Controls.png alt="Controls Settings">
+</div>
+<div class=mySlides>
+<img src=Controller.png alt="Controller Settings">
+</div>
+<div class=mySlides>
+<img src=Interface.png alt="Interface Settings">
+</div>
+<div class=mySlides>
+<img src=Video.png alt="Video Settings">
+</div>
+<div class=mySlides>
+<img src=Audio.png alt="Audio Settings">
+</div>
+<div class=mySlides>
+<img src=Chat.png alt="Chat Settings">
+</div>
+<a class=prev onclick=plusSlides(-1)>❮</a>
+<a class=next onclick=plusSlides(1)>❯</a>
+</div>
+</div>
+<div id=fullscreenOverlay class=fullscreen-overlay onclick=closeFullscreen()>
+<img id=fullscreenImage src="" alt="Full Screen Image">
+</div>
+<script>let slideIndex=1;function plusSlides(e){showSlides(slideIndex+=e)}function showSlides(e){let l,s=document.getElementsByClassName("mySlides");for(e>s.length&&(slideIndex=1),e<1&&(slideIndex=s.length),l=0;l<s.length;l++)s[l].style.display="none";s[slideIndex-1].style.display="block"}function showFullscreen(e){const l=document.getElementById("fullscreenOverlay");document.getElementById("fullscreenImage").src=e,l.style.display="flex"}function closeFullscreen(){document.getElementById("fullscreenOverlay").style.display="none"}showSlides(slideIndex),document.querySelectorAll(".mySlides img").forEach((e=>{e.addEventListener("click",(()=>showFullscreen(e.src)))}))</script>
 </section>
-    
-<section id="bronze-to-do">
-  <div style="text-align: center;">
-    <h1>To-Do List:</h1>
-    <p>1. Get good camera settings.</p>
-    <p>2. Get good control settings.</p>
-    <p>3. Play the game and have fun until you reach Silver rank in 2s or 3s.</p>
-</section>
-
-<!-- Javascript for sidebar -->
-<script>
-    function toggleSidebar() {
-        const sidebar = document.querySelector('.sidebar');
-        sidebar.classList.toggle('active');
-    }
-</script>
-
+<section id=bronze-to-do>
+<div style=text-align:center>
+<h1>To-Do List:</h1>
+<p>1. Get good camera settings.</p>
+<p>2. Get good control settings.</p>
+<p>3. Play the game and have fun until you reach Silver rank in 2s or 3s.</p>
+</div></section>
+<script>function toggleSidebar(){document.querySelector(".sidebar").classList.toggle("active")}</script>
 </body>
 </html>
