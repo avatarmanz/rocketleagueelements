@@ -1,46 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang=en>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rocket League Elements</title>
-    <link rel="stylesheet" href="/styles.css">
+<meta charset=UTF-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Rocket League Elements</title>
+<link rel=stylesheet href=/styles.css>
 </head>
 <body>
-
-    <!-- Menu Button for mobile -->
-    <button class="menu-button" onclick="toggleSidebar()">☰</button>
-    
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="bronze.html">Bronze</a>
-            <a href="silver.html">Silver</a>
-            <a href="gold.html">Gold</a>
-            <a href="platinum.html">Platinum</a>
-            <a href="diamond.html">Diamond</a>
-            <a href="champion.html">Champion</a>
-            <a href="grandchampion.html">Grand Champion</a>
-            <a href="trainingpacks.html">Training Packs</a>
-            <a href="tutorials.html">Tutorials</a>
-        </nav>
-    </div>
-
-    <!-- Main Content -->
-    <section id="welcome">
-        <h1>Welcome</h1>
-        <p>This website was made as a free training course and is how Avatar thinks Rocket League should be learned.</p>
-        <p>Regardless of your rank everyone should start at Bronze, go through all the material on each page, and complete the to-do list at the bottom before moving on.</p>
-    </section>
-
-    <!-- Javascript for Sidebar Toggle -->
-    <script>
-        function toggleSidebar() {
-            const sidebar = document.querySelector('.sidebar');
-            sidebar.classList.toggle('active'); // Toggles the 'active' class to slide sidebar in and out
-        }
-    </script>
-
+<button class=menu-button onclick=toggleSidebar()>☰</button>
+<div class=sidebar>
+<nav>
+<a href=index.html>Home</a>
+<a href=bronze.html>Bronze</a>
+<a href=silver.html>Silver</a>
+<a href=gold.html>Gold</a>
+<a href=platinum.html>Platinum</a>
+<a href=diamond.html>Diamond</a>
+<a href=champion.html>Champion</a>
+<a href=grandchampion.html>Grand Champion</a>
+<a href=trainingpacks.html>Training Packs</a>
+<a href=tutorials.html>Tutorials</a>
+</nav>
+</div>
+<section id=welcome>
+<h1>Welcome</h1>
+<p>This website was made as a free training course and is how Avatar thinks Rocket League should be learned.</p>
+<p>Regardless of your rank everyone should start at Bronze, go through all the material on each page, and complete the to-do list at the bottom before moving on.</p>
+</section>
+<script>function toggleSidebar(){document.querySelector(".sidebar").classList.toggle("active")}</script>
 </body>
 </html>
