@@ -24,25 +24,46 @@
 </div>
 <section id=gold-videos>
 <div class=embed-container>
-<iframe src="https://www.youtube.com/embed/rDfs9yWaR7w?si=gCvL0gy8-5HmSlmg" title="Gold - Power Shots" allowfullscreen></iframe>
+<div class=youtube-placeholder data-id=rDfs9yWaR7w onclick=loadYoutubeIframe(this)>
+<img src=https://img.youtube.com/vi/rDfs9yWaR7w/hqdefault.jpg alt="Gold - Power Shots">
+<button>▶</button>
+</div>
 </div>
 <div class=embed-container>
-<iframe src="https://www.youtube.com/embed/2xnNjXZ7Pvk?si=pCfcSsFNcw8No-ff" title="Gold - Catches" allowfullscreen></iframe>
+<div class=youtube-placeholder data-id=2xnNjXZ7Pvk onclick=loadYoutubeIframe(this)>
+<img src=https://img.youtube.com/vi/2xnNjXZ7Pvk/hqdefault.jpg alt="Gold - Catches">
+<button>▶</button>
+</div>
 </div>
 <div class=embed-container>
-<iframe src="https://www.youtube.com/embed/Pkd5uyYq-iE?si=C28b-h5-yR9D7kgS" title="Gold - Saves" allowfullscreen></iframe>
+<div class=youtube-placeholder data-id=Pkd5uyYq-iE onclick=loadYoutubeIframe(this)>
+<img src=https://img.youtube.com/vi/Pkd5uyYq-iE/hqdefault.jpg alt="Gold - Saves">
+<button>▶</button>
+</div>
 </div>
 <div class=embed-container>
-<iframe src="https://www.youtube.com/embed/S5tCP5tqjw0?si=6z5ndyBkV1GD1_vU" title="Gold - Basic Aerials" allowfullscreen></iframe>
+<div class=youtube-placeholder data-id=S5tCP5tqjw0 onclick=loadYoutubeIframe(this)>
+<img src=https://img.youtube.com/vi/S5tCP5tqjw0/hqdefault.jpg alt="Gold - Basic Aerials">
+<button>▶</button>
+</div>
 </div>
 <div class=embed-container>
-<iframe src="https://www.youtube.com/embed/Fp03AhKOAkw?si=7Ja_-wZJ0XGHV_YJ" title="Gold - Basic Wall Shots" allowfullscreen></iframe>
+<div class=youtube-placeholder data-id=Fp03AhKOAkw onclick=loadYoutubeIframe(this)>
+<img src=https://img.youtube.com/vi/Fp03AhKOAkw/hqdefault.jpg alt="Gold - Basic Wall Shots">
+<button>▶</button>
+</div>
 </div>
 <div class=embed-container>
-<iframe src="https://www.youtube.com/embed/qpEHX8fHoYw?si=JMdw0fgORYTWkckS" title="Gold - 1v1 Replay Review" allowfullscreen></iframe>
+<div class=youtube-placeholder data-id=qpEHX8fHoYw onclick=loadYoutubeIframe(this)>
+<img src=https://img.youtube.com/vi/qpEHX8fHoYw/hqdefault.jpg alt="Gold - 1v1 Replay Review">
+<button>▶</button>
+</div>
 </div>
 <div class=embed-container>
-<iframe src="https://www.youtube.com/embed/2oVhO3A8qSI?si=l5WT6hzimn7f68Tj" title="Gold - 2v2 Replay Review" allowfullscreen></iframe>
+<div class=youtube-placeholder data-id=2oVhO3A8qSI onclick=loadYoutubeIframe(this)>
+<img src=https://img.youtube.com/vi/2oVhO3A8qSI/hqdefault.jpg alt="Gold - 2v2 Replay Review">
+<button>▶</button>
+</div>
 </div>
 </section>
 <script>function toggleSidebar(){document.querySelector(".sidebar").classList.toggle("active")}function loadYoutubeIframe(e){const l=e.dataset.id,t=document.createElement("iframe");t.src=`https://www.youtube.com/embed/${l}?autoplay=1`,t.setAttribute("frameborder","0"),t.setAttribute("allowfullscreen",""),t.setAttribute("allow","accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"),e.replaceWith(t)}let slideIndex=1;function plusSlides(e){showSlides(slideIndex+=e)}function showSlides(e){const l=document.getElementsByClassName("mySlides");e>l.length&&(slideIndex=1),e<1&&(slideIndex=l.length);for(let e=0;e<l.length;e++)l[e].style.display="none";l[slideIndex-1].style.display="block"}function showFullscreen(e){const l=document.getElementById("fullscreenOverlay");document.getElementById("fullscreenImage").src=e,l.style.display="flex"}function closeFullscreen(){document.getElementById("fullscreenOverlay").style.display="none"}showSlides(slideIndex),document.querySelectorAll(".mySlides img").forEach((e=>{e.addEventListener("click",(()=>showFullscreen(e.src)))}))</script>
