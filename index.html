@@ -22,11 +22,12 @@
 <a href=tutorials.html>Tutorials</a>
 </nav>
 </div>
+<div id=overlay onclick=toggleSidebar()></div>
 <section id=welcome>
 <h1>Welcome</h1>
 <p>This website was made as a free training course and is how Avatar thinks Rocket League should be learned.</p>
 <p>Regardless of your rank everyone should start at Bronze, go through all the material on each page, and complete the to-do list at the bottom before moving on.</p>
 </section>
-<script>function toggleSidebar(){document.querySelector(".sidebar").classList.toggle("active")}</script>
+<script>function toggleSidebar(){const e=document.querySelector(".sidebar"),s=document.getElementById("overlay"),l=document.body;e.classList.toggle("active"),e.classList.contains("active")?(s.style.display="block",l.classList.add("lock-scroll")):(s.style.display="none",l.classList.remove("lock-scroll"))}</script>
 </body>
 </html>
