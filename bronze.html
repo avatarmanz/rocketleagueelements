@@ -24,13 +24,22 @@
 </div>
 <section id=bronze-videos>
 <div class=embed-container>
-<iframe src="https://www.youtube.com/embed/znGrlrLWIOo?si=k-ureV-6rLCseqMT" title="Bronze - Menu Navigation" allowfullscreen></iframe>
+<div class=youtube-placeholder data-id=znGrlrLWIOo onclick=loadYoutubeIframe(this)>
+<img src=https://img.youtube.com/vi/znGrlrLWIOo/hqdefault.jpg alt="Bronze - Menu Navigation">
+<button>▶</button>
+</div>
 </div>
 <div class=embed-container>
-<iframe src="https://www.youtube.com/embed/eUCSNcoLOZQ?si=-XyZpwezyXLwUBhO" title="Bronze - Settings" allowfullscreen></iframe>
+<div class=youtube-placeholder data-id=eUCSNcoLOZQ onclick=loadYoutubeIframe(this)>
+<img src=https://img.youtube.com/vi/eUCSNcoLOZQ/hqdefault.jpg alt="Bronze - Settings">
+<button>▶</button>
+</div>
 </div>
 <div class=embed-container>
-<iframe src="https://www.youtube.com/embed/i1cPeD6Qqdg?si=up4cDIm2Plr-0HTs" title="Bronze - Physics" allowfullscreen></iframe>
+<div class=youtube-placeholder data-id=i1cPeD6Qqdg onclick=loadYoutubeIframe(this)>
+<img src=https://img.youtube.com/vi/i1cPeD6Qqdg/hqdefault.jpg alt="Bronze - Physics">
+<button>▶</button>
+</div>
 </div>
 </section>
 <section id=bronze-my-settings>
@@ -39,30 +48,14 @@
 <section id=bronze-carousel>
 <div class=carousel-container>
 <div class=container>
-<div class=mySlides>
-<img src=Gameplay.webp alt="Gameplay Settings">
-</div>
-<div class=mySlides>
-<img src=Camera.webp alt="Camera Settings">
-</div>
-<div class=mySlides>
-<img src=Controls.webp alt="Controls Settings">
-</div>
-<div class=mySlides>
-<img src=Controller.webp alt="Controller Settings">
-</div>
-<div class=mySlides>
-<img src=Interface.webp alt="Interface Settings">
-</div>
-<div class=mySlides>
-<img src=Video.webp alt="Video Settings">
-</div>
-<div class=mySlides>
-<img src=Audio.webp alt="Audio Settings">
-</div>
-<div class=mySlides>
-<img src=Chat.webp alt="Chat Settings">
-</div>
+<div class=mySlides><img src=Gameplay.webp alt="Gameplay Settings"></div>
+<div class=mySlides><img src=Camera.webp alt="Camera Settings"></div>
+<div class=mySlides><img src=Controls.webp alt="Controls Settings"></div>
+<div class=mySlides><img src=Controller.webp alt="Controller Settings"></div>
+<div class=mySlides><img src=Interface.webp alt="Interface Settings"></div>
+<div class=mySlides><img src=Video.webp alt="Video Settings"></div>
+<div class=mySlides><img src=Audio.webp alt="Audio Settings"></div>
+<div class=mySlides><img src=Chat.webp alt="Chat Settings"></div>
 <a class=prev onclick=plusSlides(-1)>❮</a>
 <a class=next onclick=plusSlides(1)>❯</a>
 </div>
@@ -70,7 +63,6 @@
 <div id=fullscreenOverlay class=fullscreen-overlay onclick=closeFullscreen()>
 <img id=fullscreenImage src="" alt="Full Screen Image">
 </div>
-<script>let slideIndex=1;function plusSlides(e){showSlides(slideIndex+=e)}function showSlides(e){let l,s=document.getElementsByClassName("mySlides");for(e>s.length&&(slideIndex=1),e<1&&(slideIndex=s.length),l=0;l<s.length;l++)s[l].style.display="none";s[slideIndex-1].style.display="block"}function showFullscreen(e){const l=document.getElementById("fullscreenOverlay");document.getElementById("fullscreenImage").src=e,l.style.display="flex"}function closeFullscreen(){document.getElementById("fullscreenOverlay").style.display="none"}showSlides(slideIndex),document.querySelectorAll(".mySlides img").forEach((e=>{e.addEventListener("click",(()=>showFullscreen(e.src)))}))</script>
 </section>
 <section id=bronze-to-do>
 <div style=text-align:center>
@@ -78,7 +70,9 @@
 <p>1. Get good camera settings.</p>
 <p>2. Get good control settings.</p>
 <p>3. Play the game and have fun until you reach Silver rank in 2s or 3s.</p>
-</div></section>
-<script>function toggleSidebar(){document.querySelector(".sidebar").classList.toggle("active")}</script>
+</div>
+</section>
+<script>function toggleSidebar(){document.querySelector(".sidebar").classList.toggle("active")}function loadYoutubeIframe(e){const l=e.dataset.id,t=document.createElement("iframe");t.src=`https://www.youtube.com/embed/${l}?autoplay=1`,t.setAttribute("frameborder","0"),t.setAttribute("allowfullscreen",""),t.setAttribute("allow","accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"),e.replaceWith(t)}let slideIndex=1;function plusSlides(e){showSlides(slideIndex+=e)}function showSlides(e){const l=document.getElementsByClassName("mySlides");e>l.length&&(slideIndex=1),e<1&&(slideIndex=l.length);for(let e=0;e<l.length;e++)l[e].style.display="none";l[slideIndex-1].style.display="block"}function showFullscreen(e){const l=document.getElementById("fullscreenOverlay");document.getElementById("fullscreenImage").src=e,l.style.display="flex"}function closeFullscreen(){document.getElementById("fullscreenOverlay").style.display="none"}showSlides(slideIndex),document.querySelectorAll(".mySlides img").forEach((e=>{e.addEventListener("click",(()=>showFullscreen(e.src)))}))</script>
+<style>.youtube-placeholder{position:relative;width:100%;padding-bottom:56.25%;background-color:#000;cursor:pointer}.youtube-placeholder img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover}.youtube-placeholder button{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:3em;color:#fff;background:0 0;border:none;cursor:pointer}</style>
 </body>
 </html>
