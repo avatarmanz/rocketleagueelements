@@ -24,22 +24,40 @@
 </div>
 <section id=silver-videos>
 <div class=embed-container>
-<iframe src="https://www.youtube.com/embed/_XyovvtNXGM?si=h9kXLZ7KU_FAnGpN" title="Silver - Power Shots" allowfullscreen></iframe>
+<div class=youtube-placeholder data-id=_XyovvtNXGM onclick=loadYoutubeIframe(this)>
+<img src=https://img.youtube.com/vi/_XyovvtNXGM/hqdefault.jpg alt="Silver - Power Shots">
+<button>▶</button>
+</div>
 </div>
 <div class=embed-container>
-<iframe src="https://www.youtube.com/embed/8GuXzCOCN-Y?si=JWd7m_v3C5vQQdPX" title="Silver - Catches" allowfullscreen></iframe>
+<div class=youtube-placeholder data-id=8GuXzCOCN-Y onclick=loadYoutubeIframe(this)>
+<img src=https://img.youtube.com/vi/8GuXzCOCN-Y/hqdefault.jpg alt="Silver - Catches">
+<button>▶</button>
+</div>
 </div>
 <div class=embed-container>
-<iframe src="https://www.youtube.com/embed/-S6SeCQiyas?si=LZIEB5U15xt9mIht" title="Silver - Saves" allowfullscreen></iframe>
+<div class=youtube-placeholder data-id=-S6SeCQiyas onclick=loadYoutubeIframe(this)>
+<img src=https://img.youtube.com/vi/-S6SeCQiyas/hqdefault.jpg alt="Silver - Saves">
+<button>▶</button>
+</div>
 </div>
 <div class=embed-container>
-<iframe src="https://www.youtube.com/embed/sm2mxo6eX7I?si=BLADtA1rk7XBL77C" title="Silver - 1v1 Replay Review" allowfullscreen></iframe>
+<div class=youtube-placeholder data-id=sm2mxo6eX7I onclick=loadYoutubeIframe(this)>
+<img src=https://img.youtube.com/vi/sm2mxo6eX7I/hqdefault.jpg alt="Silver - 1v1 Replay Review">
+<button>▶</button>
+</div>
 </div>
 <div class=embed-container>
-<iframe src="https://www.youtube.com/embed/yt3Rb8fNVXs?si=3FvCv2iyNfOJsnxK" title="Silver - 2v2 Replay Review" allowfullscreen></iframe>
+<div class=youtube-placeholder data-id=yt3Rb8fNVXs onclick=loadYoutubeIframe(this)>
+<img src=https://img.youtube.com/vi/yt3Rb8fNVXs/hqdefault.jpg alt="Silver - 2v2 Replay Review">
+<button>▶</button>
+</div>
 </div>
 <div class=embed-container>
-<iframe src="https://www.youtube.com/embed/tAKwX8yaeOM?si=p-YH1RmsZyqFZgtJ" title="Silver - 3v3 Replay Review" allowfullscreen></iframe>
+<div class=youtube-placeholder data-id=tAKwX8yaeOM onclick=loadYoutubeIframe(this)>
+<img src=https://img.youtube.com/vi/tAKwX8yaeOM/hqdefault.jpg alt="Silver - 3v3 Replay Review">
+<button>▶</button>
+</div>
 </div>
 </section>
 <section id=silver-to-do>
@@ -49,6 +67,6 @@
 <p>3. Complete the Silver - Saves training pack and show competency as demonstrated.</p>
 <p>4. Watch one replay and find when you could have used the power shot, catch, or save skills to improve on your ball control during the game.</p>
 </section>
-<script>function toggleSidebar(){document.querySelector(".sidebar").classList.toggle("active")}</script>
+<script>function toggleSidebar(){document.querySelector(".sidebar").classList.toggle("active")}function loadYoutubeIframe(e){const t=e.dataset.id,r=document.createElement("iframe");r.src=`https://www.youtube.com/embed/${t}?autoplay=1`,r.setAttribute("frameborder","0"),r.setAttribute("allowfullscreen",""),r.setAttribute("allow","accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"),e.replaceWith(r)}</script>
 </body>
 </html>
