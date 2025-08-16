@@ -7,24 +7,27 @@
   <style>
     body {
       margin: 0;
-      height: 100vh;
-      display: grid;
-      grid-template-rows: auto 1fr auto;
-      background-color: black;
+      padding: 0;
+      background: black;
       color: white;
       font-family: Arial, sans-serif;
-      overflow: hidden; /* No scrolling */
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
     }
 
-    header {
+    h1 {
       text-align: center;
-      padding: 10px;
+      margin: 0;
+      padding: 15px 0 10px 0; /* extra space below header */
       font-size: 2em;
-      font-weight: bold;
       z-index: 2;
+      background: black;
     }
 
-    .slideshow {
+    .slideshow-container {
+      flex: 1;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -32,63 +35,80 @@
       overflow: hidden;
     }
 
-    .slideshow img {
-      max-width: 100%;
-      max-height: 100%;
+    .slideshow-container img {
+      max-width: 90%;
+      max-height: 90%;
       object-fit: contain;
       position: absolute;
       opacity: 0;
       transition: opacity 1s ease-in-out;
     }
 
-    .slideshow img.active {
+    .slideshow-container img.active {
       opacity: 1;
       position: relative;
     }
 
+    /* Player controls at bottom */
     .controls {
-      background: rgba(0, 0, 0, 0.7);
-      padding: 15px 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 15px;
-      z-index: 2;
+      padding: 10px 0 15px 0; /* padding at bottom */
+      background: rgba(0, 0, 0, 0.6);
+      text-align: center;
     }
 
     .control-bar {
       display: flex;
+      justify-content: center;
       align-items: center;
       gap: 15px;
       flex-wrap: wrap;
     }
 
     .control-bar button {
-      background: #444;
+      background: #222;
+      border: 1px solid #555;
       color: white;
-      border: none;
       padding: 10px 20px;
-      border-radius: 6px;
+      border-radius: 5px;
       cursor: pointer;
       font-size: 16px;
     }
 
     .control-bar button:hover {
-      background: #666;
+      background: #444;
     }
 
     .volume-slider {
       width: 120px;
     }
 
-    .volume-label {
-      min-width: 35px;
-      text-align: right;
-      font-size: 14px;
+    /* Sparkles */
+    .sparkle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0;
+      animation: rise 3s linear forwards;
     }
 
-    /* Responsive scaling */
+    @keyframes rise {
+      from {
+        transform: translateY(100vh);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-10vh);
+        opacity: 0;
+      }
+    }
+
+    /* Responsive player controls */
     @media (max-width: 768px) {
+      .control-bar {
+        gap: 10px;
+      }
       .control-bar button {
         padding: 8px 16px;
         font-size: 14px;
@@ -96,12 +116,12 @@
       .volume-slider {
         width: 80px;
       }
-      .volume-label {
-        font-size: 12px;
-      }
     }
 
     @media (max-width: 480px) {
+      .control-bar {
+        gap: 6px;
+      }
       .control-bar button {
         padding: 6px 12px;
         font-size: 12px;
@@ -109,111 +129,86 @@
       .volume-slider {
         width: 60px;
       }
-      .volume-label {
-        font-size: 10px;
-      }
-    }
-
-    /* Sparkles */
-    .sparkle {
-      position: absolute;
-      bottom: -10px;
-      width: 4px;
-      height: 4px;
-      background: white;
-      border-radius: 50%;
-      opacity: 0.8;
-      animation: rise 5s linear forwards;
-    }
-
-    @keyframes rise {
-      0% { transform: translateY(0); opacity: 0.8; }
-      100% { transform: translateY(-110vh); opacity: 0; }
     }
   </style>
 </head>
 <body>
-  <header>Happy Birthday Hannah</header>
-
-  <div class="slideshow" id="slideshow">
-    <!-- Images injected by JS -->
-  </div>
+  <h1>Happy Birthday Hannah</h1>
+  <div class="slideshow-container" id="slideshow"></div>
 
   <div class="controls">
     <div class="control-bar">
-      <button id="pauseBtn">⏸️</button>
-      <button id="muteBtn">🔊</button>
-      <input type="range" id="volumeSlider" class="volume-slider" min="0" max="100" value="5">
-      <span id="volumeValue" class="volume-label">5%</span>
+      <button id="mute-btn">🔇 Mute</button>
+      <button id="pause-btn">⏸ Pause</button>
+      <input type="range" id="volume-slider" class="volume-slider" min="0" max="1" step="0.01" value="0.05">
     </div>
   </div>
 
-  <audio id="audio" autoplay loop>
+  <audio id="birthday-audio" loop autoplay>
     <source src="happybirthday/song.mp3" type="audio/mpeg">
   </audio>
 
   <script>
-    const images = [];
-    for (let i = 1; i <= 441; i++) {
-      images.push(`happybirthday/${i}.jpg`);
+    // Slideshow
+    const folder = "happybirthday";
+    const totalImages = 441;
+    const slideshow = document.getElementById("slideshow");
+    let currentIndex = 0;
+
+    for (let i = 1; i <= totalImages; i++) {
+      const img = document.createElement("img");
+      img.src = `${folder}/${i}.jpg`;
+      if (i === 1) img.classList.add("active");
+      slideshow.appendChild(img);
     }
 
-    let currentIndex = 0;
-    const slideshow = document.getElementById("slideshow");
+    const images = document.querySelectorAll(".slideshow-container img");
 
-    images.forEach((src, i) => {
-      const img = document.createElement("img");
-      img.src = src;
-      if (i === 0) img.classList.add("active");
-      slideshow.appendChild(img);
-    });
+    function showNextImage() {
+      images[currentIndex].classList.remove("active");
+      currentIndex = (currentIndex + 1) % images.length;
+      images[currentIndex].classList.add("active");
+    }
 
-    const imgElements = slideshow.querySelectorAll("img");
-    setInterval(() => {
-      imgElements[currentIndex].classList.remove("active");
-      currentIndex = (currentIndex + 1) % imgElements.length;
-      imgElements[currentIndex].classList.add("active");
-    }, 3000);
+    setInterval(showNextImage, 3000);
 
     // Music controls
-    const audio = document.getElementById("audio");
-    const pauseBtn = document.getElementById("pauseBtn");
-    const muteBtn = document.getElementById("muteBtn");
-    const volumeSlider = document.getElementById("volumeSlider");
-    const volumeValue = document.getElementById("volumeValue");
+    const audio = document.getElementById("birthday-audio");
+    const muteBtn = document.getElementById("mute-btn");
+    const pauseBtn = document.getElementById("pause-btn");
+    const volumeSlider = document.getElementById("volume-slider");
 
     audio.volume = 0.05;
-    volumeSlider.value = 5;
-    volumeValue.textContent = "5%";
+
+    muteBtn.addEventListener("click", () => {
+      audio.muted = !audio.muted;
+      muteBtn.textContent = audio.muted ? "🔊 Unmute" : "🔇 Mute";
+    });
 
     pauseBtn.addEventListener("click", () => {
       if (audio.paused) {
         audio.play();
-        pauseBtn.textContent = "⏸️";
+        pauseBtn.textContent = "⏸ Pause";
       } else {
         audio.pause();
-        pauseBtn.textContent = "▶️";
+        pauseBtn.textContent = "▶ Play";
       }
     });
 
-    muteBtn.addEventListener("click", () => {
-      audio.muted = !audio.muted;
-      muteBtn.textContent = audio.muted ? "🔇" : "🔊";
-    });
-
-    volumeSlider.addEventListener("input", () => {
-      audio.volume = volumeSlider.value / 100;
-      volumeValue.textContent = volumeSlider.value + "%";
+    volumeSlider.addEventListener("input", (e) => {
+      audio.volume = e.target.value;
     });
 
     // Sparkles
     function createSparkle() {
       const sparkle = document.createElement("div");
-      sparkle.className = "sparkle";
-      sparkle.style.left = Math.random() * window.innerWidth + "px";
+      sparkle.classList.add("sparkle");
+      sparkle.style.left = Math.random() * 100 + "vw";
       document.body.appendChild(sparkle);
-      setTimeout(() => sparkle.remove(), 5000);
+
+      setTimeout(() => sparkle.remove(), 3000);
     }
+
     setInterval(createSparkle, 300);
   </script>
 </body>
