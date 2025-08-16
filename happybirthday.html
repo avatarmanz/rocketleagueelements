@@ -321,7 +321,7 @@
   
   function setupAudio() {
     audio.src = `${folderPath}/${musicFile}`;
-    audio.volume = 0.5;
+    audio.volume = 0.10;
     audio.play().catch(e => { console.log('Audio autoplay blocked.'); muteBtn.innerHTML = '🔊 Play'; });
   }
   
