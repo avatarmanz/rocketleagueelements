@@ -1,368 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Happy Birthday Hannah!</title>
-<style>
-  /* --- Page Layout: fixed 3-row grid (header | content | controls) --- */
-  body {
-    margin: 0;
-    min-height: 100dvh;                  /* use dynamic viewport for mobile chrome */
-    display: grid;
-    grid-template-rows: auto 1fr auto;   /* header, slideshow area, controls */
-    justify-items: center;               /* center children horizontally */
-    row-gap: 12px;
-    padding: 12px 0 max(12px, env(safe-area-inset-bottom)); /* safe bottom padding */
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: #fff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    overflow: hidden;                    /* never scroll the page */
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Hannah</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      overflow: hidden; /* No scrolling */
+    }
 
-  /* --- Header --- */
-  h1 {
-    font-size: 2.3em;
-    margin: 0;
-    text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
-    animation: glow 2s ease-in-out infinite alternate;
-    line-height: 1.1;
-    z-index: 0; /* stay above sparkles background */
-  }
-  @keyframes glow {
-    from { text-shadow: 3px 3px 6px rgba(0,0,0,0.3), 0 0 10px #fff; }
-    to   { text-shadow: 3px 3px 6px rgba(0,0,0,0.3), 0 0 20px #fff, 0 0 30px #fff; }
-  }
+    header {
+      text-align: center;
+      padding: 10px;
+      font-size: 2em;
+      font-weight: bold;
+      z-index: 2;
+    }
 
-  /* --- Slideshow area (middle row) --- */
-  #slideshow-container {
-    width: 100%;
-    max-width: 90%;
-    height: 100%;                        /* fills the middle grid row */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;                    /* clip fade-in scale so it never overlaps header/controls */
-    border-radius: 16px;
-  }
+    .slideshow {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
 
-  #slideshow {
-    width: 100%;
-    height: 100%;
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;                 /* scale to fit without cropping */
-    border: 5px solid #fff;
-    border-radius: 15px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-    animation: fadeIn 0.9s ease-in;
-    background: rgba(255,255,255,0.06);  /* subtle matte behind varied aspect ratios */
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.94); }
-    to   { opacity: 1; transform: scale(1); }
-  }
+    .slideshow img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      position: absolute;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
 
-  #loading {
-    position: absolute;
-    inset: 0;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2em;
-    background: rgba(0,0,0,0.15);
-    backdrop-filter: blur(2px);
-  }
+    .slideshow img.active {
+      opacity: 1;
+      position: relative;
+    }
 
-  /* --- Controls (bottom row) --- */
-  .controls {
-    width: max-content;
-    max-width: 94vw;
-    display: flex;
-    justify-content: center;
-    background: rgba(0,0,0,0.22);
-    padding: 12px 16px;
-    border-radius: 25px;
-    backdrop-filter: blur(10px);
-    flex-shrink: 0; /* never shrink out of view */
-  }
-  .control-bar {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    flex-wrap: wrap;
-  }
+    .controls {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 15px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      z-index: 2;
+    }
 
-  button {
-    padding: 10px 18px;
-    font-size: 15px;
-    cursor: pointer;
-    background: rgba(255,255,255,0.9);
-    color: #764ba2;
-    border: none;
-    border-radius: 24px;
-    font-weight: 700;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  }
-  button:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
-  button:active { transform: translateY(0); }
+    .control-bar {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
 
-  .volume-slider {
-    width: 120px;
-    height: 6px;
-    -webkit-appearance: none;
-    appearance: none;
-    background: rgba(255,255,255,0.3);
-    border-radius: 3px;
-    outline: none;
-  }
-  .volume-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 18px; height: 18px; background: #fff; border-radius: 50%;
-    cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-  }
-  .volume-slider::-moz-range-thumb {
-    width: 18px; height: 18px; background: #fff; border: none; border-radius: 50%;
-    cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-  }
-  .volume-label { font-size: 14px; min-width: 30px; text-align: center; }
+    .control-bar button {
+      background: #444;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
 
-  #error {
-    display: none;
-    padding: 12px 16px;
-    background: rgba(255,0,0,0.1);
-    border: 2px solid #ff4444;
-    border-radius: 10px;
-    margin: 0;
-  }
+    .control-bar button:hover {
+      background: #666;
+    }
 
-  /* --- Sparkles (background) --- */
-  .sparkles {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: -1; /* behind everything */
-  }
-  .sparkle {
-    position: absolute;
-    background: white;
-    border-radius: 50%;
-    opacity: 0;
-    animation: sparkle 3.2s linear infinite;
-  }
-  @keyframes sparkle {
-    0%   { transform: translateY(100vh) scale(0); opacity: 0; }
-    8%   { opacity: 1; }
-    100% { transform: translateY(-12vh) scale(0); opacity: 0; }
-  }
+    .volume-slider {
+      width: 120px;
+    }
 
-  /* --- Responsive tweaks --- */
-  @media (max-width: 900px) {
-    #slideshow-container { max-width: 94%; }
-  }
-  @media (max-width: 768px) {
-    h1 { font-size: 1.8em; padding: 0 10px; }
-    .controls { padding: 10px 12px; }
-    .control-bar { gap: 10px; }
-    button { padding: 8px 14px; font-size: 14px; }
-    .volume-slider { width: 90px; }
-    .volume-label { font-size: 12px; }
-  }
-  @media (max-width: 480px) {
-    h1 { font-size: 1.5em; }
-    .control-bar { gap: 8px; }
-    button { padding: 7px 12px; font-size: 12px; }
-    .volume-slider { width: 70px; }
-    .volume-label { font-size: 11px; }
-  }
-  /* Extra-short screens (landscape phones, etc.) */
-  @media (max-height: 560px) {
-    h1 { font-size: 1.3em; }
-    .controls { transform: scale(0.95); }
-  }
-</style>
+    .volume-label {
+      min-width: 35px;
+      text-align: right;
+      font-size: 14px;
+    }
+
+    /* Responsive scaling */
+    @media (max-width: 768px) {
+      .control-bar button {
+        padding: 8px 16px;
+        font-size: 14px;
+      }
+      .volume-slider {
+        width: 80px;
+      }
+      .volume-label {
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .control-bar button {
+        padding: 6px 12px;
+        font-size: 12px;
+      }
+      .volume-slider {
+        width: 60px;
+      }
+      .volume-label {
+        font-size: 10px;
+      }
+    }
+
+    /* Sparkles */
+    .sparkle {
+      position: absolute;
+      bottom: -10px;
+      width: 4px;
+      height: 4px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: rise 5s linear forwards;
+    }
+
+    @keyframes rise {
+      0% { transform: translateY(0); opacity: 0.8; }
+      100% { transform: translateY(-110vh); opacity: 0; }
+    }
+  </style>
 </head>
 <body>
-  <div class="sparkles" id="sparkles"></div>
+  <header>Happy Birthday Hannah</header>
 
-  <!-- Row 1: Header -->
-  <h1>🎉 Happy Birthday Hannah! 🎂</h1>
-
-  <!-- Row 2: Slideshow (always centered, never overlaps header/controls) -->
-  <div id="slideshow-container">
-    <img id="slideshow" src="" alt="Birthday Image" />
-    <div id="loading">Loading images...</div>
+  <div class="slideshow" id="slideshow">
+    <!-- Images injected by JS -->
   </div>
 
-  <!-- Hidden audio -->
-  <audio id="bgMusic" loop></audio>
-
-  <!-- Row 3: Controls (always at the bottom) -->
   <div class="controls">
     <div class="control-bar">
-      <button id="playPauseBtn">⏸️ Pause</button>
-      <button id="muteBtn">🔇 Mute</button>
-      <input type="range" id="volumeSlider" class="volume-slider" min="0" max="100" value="5" />
-      <span class="volume-label" id="volumeValue">5%</span>
+      <button id="pauseBtn">⏸️</button>
+      <button id="muteBtn">🔊</button>
+      <input type="range" id="volumeSlider" class="volume-slider" min="0" max="100" value="5">
+      <span id="volumeValue" class="volume-label">5%</span>
     </div>
   </div>
 
-  <div id="error"><strong>Error:</strong> <span id="errorMsg"></span></div>
+  <audio id="audio" autoplay loop>
+    <source src="happybirthday/song.mp3" type="audio/mpeg">
+  </audio>
 
-<script>
-  // Configuration
-  const repoOwner = 'avatarmanz';
-  const repoName = 'rocketleagueelements';
-  const folderPath = 'happybirthday';
-  const musicFile = 'paralyzer.mp3';
-
-  let images = [];
-  let currentIndex = 0;
-  let interval = null;
-  let speed = 5000; // 5 seconds
-  let isPaused = false;
-
-  const slideshow = document.getElementById('slideshow');
-  const audio = document.getElementById('bgMusic');
-  const loading = document.getElementById('loading');
-  const playPauseBtn = document.getElementById('playPauseBtn');
-  const muteBtn = document.getElementById('muteBtn');
-  const volumeSlider = document.getElementById('volumeSlider');
-  const volumeValue = document.getElementById('volumeValue');
-
-  /* Sparkles */
-  function createSparkles() {
-    const sparklesContainer = document.getElementById('sparkles');
-    for (let i = 0; i < 50; i++) {
-      const s = document.createElement('div');
-      s.className = 'sparkle';
-      s.style.left = Math.random() * 100 + '%';
-      const size = Math.random() * 4 + 2;
-      s.style.width = size + 'px';
-      s.style.height = size + 'px';
-      s.style.animationDelay = (Math.random() * 3) + 's';
-      s.style.animationDuration = (Math.random() * 3 + 3) + 's';
-      sparklesContainer.appendChild(s);
+  <script>
+    const images = [];
+    for (let i = 1; i <= 441; i++) {
+      images.push(`happybirthday/${i}.jpg`);
     }
-  }
 
-  /* Fetch images list */
-  async function fetchImages() {
-    loading.style.display = 'flex';
-    try {
-      const res = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contents/${folderPath}`);
-      if (!res.ok) throw new Error('GitHub API request failed');
-      const files = await res.json();
-      const exts = ['.jpg','.jpeg','.png','.gif','.webp','.bmp'];
-      images = files
-        .filter(f => exts.some(ext => f.name.toLowerCase().endsWith(ext)))
-        .map(f => `${folderPath}/${f.name}`);
+    let currentIndex = 0;
+    const slideshow = document.getElementById("slideshow");
 
-      if (!images.length) {
-        // Fallback: assume numbered .webp files
-        for (let i = 1; i <= 50; i++) images.push(`${folderPath}/${i}.webp`);
+    images.forEach((src, i) => {
+      const img = document.createElement("img");
+      img.src = src;
+      if (i === 0) img.classList.add("active");
+      slideshow.appendChild(img);
+    });
+
+    const imgElements = slideshow.querySelectorAll("img");
+    setInterval(() => {
+      imgElements[currentIndex].classList.remove("active");
+      currentIndex = (currentIndex + 1) % imgElements.length;
+      imgElements[currentIndex].classList.add("active");
+    }, 3000);
+
+    // Music controls
+    const audio = document.getElementById("audio");
+    const pauseBtn = document.getElementById("pauseBtn");
+    const muteBtn = document.getElementById("muteBtn");
+    const volumeSlider = document.getElementById("volumeSlider");
+    const volumeValue = document.getElementById("volumeValue");
+
+    audio.volume = 0.05;
+    volumeSlider.value = 5;
+    volumeValue.textContent = "5%";
+
+    pauseBtn.addEventListener("click", () => {
+      if (audio.paused) {
+        audio.play();
+        pauseBtn.textContent = "⏸️";
+      } else {
+        audio.pause();
+        pauseBtn.textContent = "▶️";
       }
-      shuffle(images);
-      if (images.length) { showNext(); startSlideshow(); }
-    } catch (e) {
-      // Fallback numbered set
-      for (let i = 1; i <= 20; i++) images.push(`${folderPath}/${i}.webp`);
-      shuffle(images);
-      if (images.length) { showNext(); startSlideshow(); }
-    } finally {
-      loading.style.display = 'none';
-    }
-  }
+    });
 
-  function shuffle(arr) {
-    for (let i = arr.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [arr[i], arr[j]] = [arr[j], arr[i]];
-    }
-  }
-
-  /* Image rotation */
-  function showNext() {
-    if (!images.length) return;
-    const test = new Image();
-    test.onload = () => {
-      slideshow.src = images[currentIndex];
-      slideshow.style.animation = 'none';
-      requestAnimationFrame(() => {
-        // ensure animation reset inside container (which is overflow hidden)
-        slideshow.style.animation = 'fadeIn 0.9s ease-in';
-      });
-    };
-    test.onerror = () => {
-      images.splice(currentIndex, 1);
-      if (images.length) {
-        currentIndex %= images.length;
-        showNext();
-      }
-    };
-    test.src = images[currentIndex];
-    currentIndex = (currentIndex + 1) % images.length;
-  }
-
-  function startSlideshow() {
-    if (interval) clearInterval(interval);
-    interval = setInterval(showNext, speed);
-    isPaused = false;
-    playPauseBtn.innerHTML = '⏸️ Pause';
-  }
-  function stopSlideshow() {
-    if (interval) { clearInterval(interval); interval = null; }
-    isPaused = true;
-    playPauseBtn.innerHTML = '▶️ Play';
-  }
-
-  /* Audio */
-  function setupAudio() {
-    audio.src = `${folderPath}/${musicFile}`;
-    audio.volume = 0.05; // 5% by default
-    audio.play().catch(() => { muteBtn.innerHTML = '🔊 Play'; });
-  }
-
-  /* Controls */
-  playPauseBtn.addEventListener('click', () => {
-    if (isPaused) { startSlideshow(); audio.play(); }
-    else { stopSlideshow(); audio.pause(); }
-  });
-
-  muteBtn.addEventListener('click', () => {
-    if (audio.paused) {
-      audio.play();
-      muteBtn.innerHTML = audio.muted ? '🔇 Unmute' : '🔊 Mute';
-    } else {
+    muteBtn.addEventListener("click", () => {
       audio.muted = !audio.muted;
-      muteBtn.innerHTML = audio.muted ? '🔇 Unmute' : '🔊 Mute';
+      muteBtn.textContent = audio.muted ? "🔇" : "🔊";
+    });
+
+    volumeSlider.addEventListener("input", () => {
+      audio.volume = volumeSlider.value / 100;
+      volumeValue.textContent = volumeSlider.value + "%";
+    });
+
+    // Sparkles
+    function createSparkle() {
+      const sparkle = document.createElement("div");
+      sparkle.className = "sparkle";
+      sparkle.style.left = Math.random() * window.innerWidth + "px";
+      document.body.appendChild(sparkle);
+      setTimeout(() => sparkle.remove(), 5000);
     }
-  });
-
-  volumeSlider.addEventListener('input', (e) => {
-    const v = e.target.value / 100;
-    audio.volume = v;
-    volumeValue.textContent = Math.round(v * 100) + '%';
-    if (v === 0) { audio.muted = true; muteBtn.innerHTML = '🔇 Unmute'; }
-    else { audio.muted = false; muteBtn.innerHTML = '🔊 Mute'; }
-  });
-
-  /* Init */
-  createSparkles();
-  fetchImages();
-  setupAudio();
-
-  // Preload next image periodically (no effect on layout)
-  setInterval(() => {
-    if (images.length && !isPaused) {
-      const nextIndex = (currentIndex + 1) % images.length;
-      new Image().src = images[nextIndex];
-    }
-  }, 1000);
-</script>
+    setInterval(createSparkle, 300);
+  </script>
 </body>
 </html>
