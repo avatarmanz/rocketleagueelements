@@ -6,18 +6,17 @@
 <title>Happy Birthday Hannah!</title>
 <style>
   body {
-    margin: 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    height: 100vh;
-    color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    overflow: hidden;
+    min-height: 100vh;
+    margin: 0;
     padding: 20px 0;
     box-sizing: border-box;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
   }
 
   h1 {
@@ -43,14 +42,13 @@
   }
 
   #slideshow-container {
-    position: relative;
-    flex: 1;
+    flex: 1 1 auto;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     max-width: 90%;
-    margin: 10px 0;
+    margin-bottom: 20px;
     min-height: 0;
   }
 
@@ -81,6 +79,7 @@
   }
 
   .controls {
+    flex-shrink: 0;
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
@@ -199,6 +198,8 @@
   }
 
   @media (max-width: 480px) {
+    body { padding-bottom: env(safe-area-inset-bottom, 15px); }
+    #slideshow-container { margin-bottom: 10px; }
     .control-bar { gap: 6px; }
     .control-bar button { padding: 6px 12px; font-size: 12px; }
     .volume-slider { width: 60px; }
