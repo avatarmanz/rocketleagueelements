@@ -1,1 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Hannah!</title>
+<style>
+  body {
+    margin: 0;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+  #slideshow {
+    max-width: 90%;
+    max-height: 80%;
+    margin-bottom: 20px;
+    border: 5px solid #fff;
+    border-radius: 10px;
+  }
+  button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
 
+<img id="slideshow" src="" alt="Birthday Image">
+<audio id="bgMusic" src="happybirthday/paralyzer.mp3" loop></audio>
+
+<div>
+  <button id="playPauseBtn">Pause</button>
+  <button id="muteBtn">Mute</button>
+</div>
+
+<script>
+  const totalImages = 367; // total number of images
+  const basePath = "happybirthday/"; // path on your site
+  const extension = ".webp";
+
+  // generate image URLs automatically
+  let images = [];
+  for (let i = 1; i <= totalImages; i++) {
+    images.push(`${basePath}${i}${extension}`);
+  }
+
+  // Shuffle the images
+  function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+
+  const shuffledImages = shuffle([...images]);
+  let currentIndex = 0;
+  const slideshow = document.getElementById('slideshow');
+  const audio = document.getElementById('bgMusic');
+  audio.play();
+
+  let interval = setInterval(nextImage, 5000); // change image every 5 seconds
+
+  function nextImage() {
+    slideshow.src = shuffledImages[currentIndex];
+    currentIndex = (currentIndex + 1) % shuffledImages.length;
+  }
+
+  const playPauseBtn = document.getElementById('playPauseBtn');
+  const muteBtn = document.getElementById('muteBtn');
+
+  playPauseBtn.addEventListener('click', () => {
+    if (interval) {
+      clearInterval(interval);
+      interval = null;
+      playPauseBtn.textContent = "Play";
+      audio.pause();
+    } else {
+      interval = setInterval(nextImage, 3000);
+      playPauseBtn.textContent = "Pause";
+      audio.play();
+    }
+  });
+
+  muteBtn.addEventListener('click', () => {
+    audio.muted = !audio.muted;
+    muteBtn.textContent = audio.muted ? "Unmute" : "Mute";
+  });
+</script>
+
+</body>
+</html>
