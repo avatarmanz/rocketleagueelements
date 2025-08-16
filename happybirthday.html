@@ -25,6 +25,26 @@
     margin: 10px 0;
     text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
     animation: glow 2s ease-in-out infinite alternate;
+    text-align: center;
+    line-height: 1.1;
+  }
+  
+  /* Mobile responsive header */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 1.8em;
+      margin: 5px 0;
+      padding: 0 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 1.5em;
+      margin: 5px 0;
+      white-space: nowrap;
+      overflow: hidden;
+    }
   }
   
   @keyframes glow {
@@ -209,9 +229,15 @@
 </div>
 <audio id="bgMusic" loop></audio>
 <div class="controls">
-  <button id="playPauseBtn">⏸️ Pause Slideshow</button>
-  <button id="muteBtn">🔇 Mute Music</button>
-  <button id="speedBtn">⚡ Speed: Normal</button>
+  <div class="button-row">
+    <button id="playPauseBtn">⏸️ Pause</button>
+    <button id="muteBtn">🔇 Mute</button>
+  </div>
+  <div class="volume-control">
+    <span class="volume-label">🔈</span>
+    <input type="range" id="volumeSlider" class="volume-slider" min="0" max="100" value="50">
+    <span class="volume-label" id="volumeValue">50%</span>
+  </div>
 </div>
 <div id="error">
   <strong>Error:</strong> <span id="errorMsg"></span>
@@ -237,7 +263,8 @@
   const errorMsg = document.getElementById('errorMsg');
   const playPauseBtn = document.getElementById('playPauseBtn');
   const muteBtn = document.getElementById('muteBtn');
-  const speedBtn = document.getElementById('speedBtn');
+  const volumeSlider = document.getElementById('volumeSlider');
+  const volumeValue = document.getElementById('volumeValue');
   
   // Create sparkles effect
   function createSparkles() {
@@ -354,7 +381,7 @@
     if (interval) clearInterval(interval);
     interval = setInterval(nextImage, speed);
     isPaused = false;
-    playPauseBtn.innerHTML = '⏸️ Pause Slideshow';
+    playPauseBtn.innerHTML = '⏸️ Pause';
   }
   
   // Stop slideshow
@@ -364,7 +391,7 @@
       interval = null;
     }
     isPaused = true;
-    playPauseBtn.innerHTML = '▶️ Play Slideshow';
+    playPauseBtn.innerHTML = '▶️ Play';
   }
   
   // Setup audio
@@ -375,7 +402,7 @@
     // Try to play audio (may be blocked by browser)
     audio.play().catch(e => {
       console.log('Audio autoplay blocked. User interaction required.');
-      muteBtn.innerHTML = '🔊 Play Music';
+      muteBtn.innerHTML = '🔊 Play';
     });
   }
   
@@ -393,28 +420,26 @@
   muteBtn.addEventListener('click', () => {
     if (audio.paused) {
       audio.play();
-      muteBtn.innerHTML = audio.muted ? '🔇 Unmute Music' : '🔊 Mute Music';
+      muteBtn.innerHTML = audio.muted ? '🔇 Unmute' : '🔊 Mute';
     } else {
       audio.muted = !audio.muted;
-      muteBtn.innerHTML = audio.muted ? '🔇 Unmute Music' : '🔊 Mute Music';
+      muteBtn.innerHTML = audio.muted ? '🔇 Unmute' : '🔊 Mute';
     }
   });
   
-  speedBtn.addEventListener('click', () => {
-    const speeds = [
-      { label: 'Slow', value: 8000 },
-      { label: 'Normal', value: 5000 },
-      { label: 'Fast', value: 3000 },
-      { label: 'Super Fast', value: 1500 }
-    ];
+  // Volume slider event listener
+  volumeSlider.addEventListener('input', (e) => {
+    const volume = e.target.value / 100;
+    audio.volume = volume;
+    volumeValue.textContent = e.target.value + '%';
     
-    const currentSpeedIndex = speeds.findIndex(s => s.value === speed);
-    const nextIndex = (currentSpeedIndex + 1) % speeds.length;
-    speed = speeds[nextIndex].value;
-    speedBtn.innerHTML = `⚡ Speed: ${speeds[nextIndex].label}`;
-    
-    if (!isPaused) {
-      startSlideshow();
+    // Update mute button state if volume is 0
+    if (volume === 0) {
+      audio.muted = true;
+      muteBtn.innerHTML = '🔇 Unmute';
+    } else {
+      audio.muted = false;
+      muteBtn.innerHTML = '🔊 Mute';
     }
   });
   
