@@ -220,6 +220,7 @@
   <div class="control-bar">
     <button id="playPauseBtn">⏸️ Pause</button>
     <button id="muteBtn">🔇 Mute</button>
+    <button id="moodBtn">Throwback</button>
     <input type="range" id="volumeSlider" class="volume-slider" min="0" max="100" value="10">
     <span class="volume-label" id="volumeValue">10%</span>
   </div>
@@ -233,7 +234,14 @@
   const repoOwner = 'avatarmanz';
   const repoName = 'rocketleagueelements';
   const folderPath = 'happybirthday';
-  const musicFile = 'paralyzer.mp3';
+  
+  // Music cycle setup
+  const musicOptions = [
+    { text: "Throwback", file: "paralyzer.mp3" },
+    { text: "Sad", file: "athousandyears.mp3" },
+    { text: "Upbeat", file: "moveslikejagger.mp3" }
+  ];
+  let currentMoodIndex = 0;
   
   let images = [];
   let currentIndex = 0;
@@ -248,6 +256,7 @@
   const errorMsg = document.getElementById('errorMsg');
   const playPauseBtn = document.getElementById('playPauseBtn');
   const muteBtn = document.getElementById('muteBtn');
+  const moodBtn = document.getElementById('moodBtn');
   const volumeSlider = document.getElementById('volumeSlider');
   const volumeValue = document.getElementById('volumeValue');
   
@@ -319,9 +328,16 @@
   }
   
   function setupAudio() {
-    audio.src = `${folderPath}/${musicFile}`;
+    updateMood(); // load default Throwback
     audio.volume = 0.10;
     audio.play().catch(e => { console.log('Audio autoplay blocked.'); muteBtn.innerHTML = '🔊 Play'; });
+  }
+  
+  function updateMood() {
+    const mood = musicOptions[currentMoodIndex];
+    audio.src = `${folderPath}/${mood.file}`;
+    moodBtn.textContent = mood.text;
+    audio.play().catch(() => {});
   }
   
   playPauseBtn.addEventListener('click', () => {
@@ -332,6 +348,11 @@
   muteBtn.addEventListener('click', () => {
     if (audio.paused) { audio.play(); muteBtn.innerHTML = audio.muted ? '🔇 Unmute' : '🔊 Mute'; }
     else { audio.muted = !audio.muted; muteBtn.innerHTML = audio.muted ? '🔇 Unmute' : '🔊 Mute'; }
+  });
+  
+  moodBtn.addEventListener('click', () => {
+    currentMoodIndex = (currentMoodIndex + 1) % musicOptions.length;
+    updateMood();
   });
   
   volumeSlider.addEventListener('input', (e) => {
